@@ -1,0 +1,56 @@
+name: easy_latex
+version: 0.0.1
+description: >-
+  Effortlessly integrate LaTeX in your Flutter apps for rendering complex 
+  mathematical expressions. Ideal for educational and scientific applications, 
+  this plugin provides dynamic LaTeX rendering with easy setup and customization.
+repository: https://github.com/miranda-learning/easy_latex
+homepage: https://easylatex.open.miranda.works/
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  intl: 0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  fonts:
+    - family: kt-ams
+      fonts:
+        - asset: lib/fonts/kt-ams.ttf
+
+    - family: kt-cal
+      fonts:
+        - asset: lib/fonts/kt-cal.ttf
+
+    - family: kt-fraktur
+      fonts:
+        - asset: lib/fonts/kt-fraktur.ttf
+
+    - family: kt-main
+      fonts:
+        - asset: lib/fonts/kt-main.ttf
+        - asset: lib/fonts/kt-main-bold.ttf
+          weight: 700
+        - asset: lib/fonts/kt-main-bold-italic.ttf
+          style: italic
+          weight: 700
+
+    - family: kt-main-italic
+      fonts:
+        - asset: lib/fonts/kt-main-italic.ttf
+        - asset: lib/fonts/kt-main-bold-italic.ttf
+          weight: 700
+
+    - family: kt-script
+      fonts:
+        - asset: lib/fonts/kt-script.ttf
