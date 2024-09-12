@@ -6,119 +6,135 @@ import '../painter/__export.dart';
 import '../render/__export.dart';
 import 'node.dart';
 
-
 class SqrtNode extends LatexRenderNode {
+  static double get f => 0.55;
 
-	static double get f => 0.55;
+  final LatexRenderNode child;
+  final LatexRenderNode? exponent;
 
-	final LatexRenderNode child;
-	final LatexRenderNode? exponent;
+  late SqrtPainter _sqrtPainter;
+  late double _exponentWidthOffset = 0;
 
-	late SqrtPainter _sqrtPainter;
-	late double _exponentWidthOffset = 0;
+  SqrtNode(this.child, {this.exponent});
 
+  @override
+  void performLayout(RenderContext renderContext, {isDense = false}) {
+    super.performLayout(renderContext);
 
-	SqrtNode(this.child, {this.exponent});
+    // layout children
+    child.performLayout(renderContext);
+    exponent?.performLayout(renderContext.copyWith(fontSizeScaling: 0.5));
 
+    // sqrt painter
+    _sqrtPainter = SqrtPainter(
+      renderContext,
+      Size(
+          child.size.width + child.topCenterOffset + child.topRightOffset,
+          child.isMultiline
+              ? child.size.height
+              : baselineToTop - fontSize * 0.12),
+      child.isMultiline,
+    );
 
-	@override
-	void performLayout(RenderContext renderContext, {isDense = false}) {
-		super.performLayout(renderContext);
+    if (exponent != null) {
+      _exponentWidthOffset =
+          max(0, exponent!.size.width - _sqrtPainter.rootWidth * f);
+    }
 
-		// layout children
-		child.performLayout(renderContext);
-		exponent?.performLayout(renderContext.copyWith(fontSizeScaling: 0.5));
+    baselineOffset = max(child.baselineOffset, baselineToTop);
+    size = Size(_sqrtPainter.size.width + _exponentWidthOffset,
+        child.size.height - child.baselineOffset + baselineOffset);
+    spacingRequired = true;
+  }
 
-		// sqrt painter
-		_sqrtPainter = SqrtPainter(renderContext,
-			Size(
-				child.size.width + child.topCenterOffset + child.topRightOffset,
-				child.isMultiline ? child.size.height : baselineToTop - fontSize*0.12
-			),
-			child.isMultiline,
-		);
+  @override
+  void paint(Canvas canvas, double start, double baseline) {
+    child.paint(canvas, start + _sqrtPainter.rootWidth + _exponentWidthOffset,
+        baseline);
 
-		if (exponent != null) {
-			_exponentWidthOffset = max(0, exponent!.size.width - _sqrtPainter.rootWidth*f);
-		}
+    exponent?.paint(
+        canvas,
+        start +
+            _exponentWidthOffset +
+            _sqrtPainter.rootWidth * f -
+            exponent!.size.width,
+        isMultiline
+            ? (baseline - fontSize * 0.5)
+            : (baseline - baselineOffset / 2));
 
-		baselineOffset = max(child.baselineOffset, baselineToTop);
-		size = Size(_sqrtPainter.size.width + _exponentWidthOffset, child.size.height - child.baselineOffset + baselineOffset);
-		spacingRequired = true;
-	}
+    _sqrtPainter.paint(canvas, start + _exponentWidthOffset,
+        baseline - child.baselineOffset, baseline);
+  }
 
+  @override
+  void computeCursorPositions(double start, double baseline,
+      List<Offset> offsets, List<double> fontSizes) {
+    offsets.add(Offset(start, baseline));
+    fontSizes.add(fontSize);
 
-	@override
-	void paint(Canvas canvas, double start, double baseline) {
-		child.paint(canvas, start + _sqrtPainter.rootWidth + _exponentWidthOffset, baseline);
+    if (exponent != null) {
+      exponent!.computeCursorPositions(
+          start +
+              _exponentWidthOffset +
+              _sqrtPainter.rootWidth * f -
+              exponent!.size.width,
+          isMultiline
+              ? (baseline - fontSize * 0.5)
+              : (baseline - baselineOffset / 2),
+          offsets,
+          fontSizes);
 
-		exponent?.paint(
-			canvas,
-			start + _exponentWidthOffset + _sqrtPainter.rootWidth*f - exponent!.size.width,
-			isMultiline ? (baseline - fontSize * 0.5) : (baseline - baselineOffset/2)
-		);
+      if (shouldAddCursorAfterwards(exponent)) {
+        offsets.add(Offset(
+          start + _exponentWidthOffset + _sqrtPainter.rootWidth * f,
+          isMultiline
+              ? (baseline - fontSize * 0.5)
+              : (baseline - baselineOffset / 2),
+        ));
+        fontSizes.add(exponent!.fontSize);
+      }
+    }
 
-		_sqrtPainter.paint(canvas, start + _exponentWidthOffset, baseline - child.baselineOffset, baseline);
-	}
+    child.computeCursorPositions(
+        start + _sqrtPainter.rootWidth + _exponentWidthOffset,
+        baseline,
+        offsets,
+        fontSizes);
 
-	@override
-	void computeCursorPositions(double start, double baseline, List<Offset> offsets, List<double> fontSizes) {
-		offsets.add(Offset(start, baseline)); fontSizes.add(fontSize);
+    if (shouldAddCursorAfterwards(child)) {
+      offsets.add(Offset(
+          start +
+              _sqrtPainter.rootWidth +
+              _exponentWidthOffset +
+              child.size.width,
+          baseline));
+      fontSizes.add(fontSize);
+    }
+  }
 
-		if (exponent != null) {
-			exponent!.computeCursorPositions(
-				start + _exponentWidthOffset + _sqrtPainter.rootWidth*f - exponent!.size.width,
-				isMultiline ? (baseline - fontSize * 0.5) : (baseline - baselineOffset/2),
-				offsets,
-				fontSizes
-			);
+  @override
+  bool get isMultiline => child.isMultiline;
 
-			if (shouldAddCursorAfterwards(exponent)) {
-				offsets.add(Offset(
-					start + _exponentWidthOffset + _sqrtPainter.rootWidth*f,
-					isMultiline ? (baseline - fontSize * 0.5) : (baseline - baselineOffset/2),
-				));
-				fontSizes.add(exponent!.fontSize);
-			}
-		}
+  @override
+  double get baselineToTop =>
+      max(child.baselineToTop + fontSize * 0.24, fontSize * 0.9);
 
+  @override
+  bool get hasDescender => child.hasDescender;
 
-		child.computeCursorPositions(
-			start + _sqrtPainter.rootWidth + _exponentWidthOffset,
-			baseline,
-			offsets,
-			fontSizes
-		);
+  @override
+  String toString() => toStringWithIndent('');
 
-		if (shouldAddCursorAfterwards(child)) {
-			offsets.add(Offset(start + _sqrtPainter.rootWidth + _exponentWidthOffset + child.size.width, baseline)); fontSizes.add(fontSize);
-		}
-	}
+  @override
+  String toStringWithIndent(String indent) {
+    String str = '$indent$runtimeType: '
+        'w: ${size.width}, h: ${size.height}, baseline: ${baselineOffset.toStringAsFixed(2)}';
 
+    str += '\n$indent  child:';
+    str += '\n$indent${child.toStringWithIndent('$indent  ')}';
+    str += '\n$indent  exponent:';
+    str += '\n$indent${exponent?.toStringWithIndent('$indent  ')}';
 
-	@override
-	bool get isMultiline => child.isMultiline;
-
-	@override
-	double get baselineToTop => max(child.baselineToTop + fontSize*0.24, fontSize*0.9);
-
-	@override
-	bool get hasDescender => child.hasDescender;
-
-
-	@override
-	String toString() => toStringWithIndent('');
-
-	@override
-	String toStringWithIndent(String indent) {
-		String str = '$indent$runtimeType: '
-			'w: ${size.width}, h: ${size.height}, baseline: ${baselineOffset.toStringAsFixed(2)}';
-
-		str += '\n$indent  child:';
-		str += '\n$indent${child.toStringWithIndent('$indent  ')}';
-		str += '\n$indent  exponent:';
-		str += '\n$indent${exponent?.toStringWithIndent('$indent  ')}';
-
-		return str;
-	}
+    return str;
+  }
 }

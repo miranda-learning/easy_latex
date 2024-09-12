@@ -5,39 +5,35 @@ import '../painter/__export.dart';
 import '../render/__export.dart';
 import 'node.dart';
 
-
 class DecimalPointNode extends LatexRenderNode {
+  late LatexTextPainter _textPainter;
+  String point = '';
 
-	late LatexTextPainter _textPainter;
-	String point = '';
+  DecimalPointNode();
 
+  @override
+  void performLayout(RenderContext renderContext, {isDense = false}) {
+    super.performLayout(renderContext);
 
-	DecimalPointNode();
+    point = NumberFormatter.decimalSeparator(locale: renderContext.locale);
 
+    _textPainter = LatexTextPainter.withRenderContext(point, renderContext);
+    _textPainter.layout();
 
-	@override
-	void performLayout(RenderContext renderContext, {isDense = false}) {
-		super.performLayout(renderContext);
+    size = _textPainter.size;
+    baselineOffset = _textPainter.baseline;
+  }
 
-		point = NumberFormatter.decimalSeparator(locale: renderContext.locale);
+  @override
+  void paint(Canvas canvas, double start, double baseline) {
+    _textPainter.paint(canvas, Offset(start, baseline - baselineOffset));
+  }
 
-		_textPainter = LatexTextPainter.withRenderContext(point, renderContext);
-		_textPainter.layout();
+  @override
+  String toString() => toStringWithIndent('');
 
-		size = _textPainter.size;
-		baselineOffset = _textPainter.baseline;
-	}
-
-	@override
-	void paint(Canvas canvas, double start, double baseline) {
-		_textPainter.paint(canvas, Offset(start, baseline - baselineOffset));
-	}
-
-
-	@override
-	String toString() => toStringWithIndent('');
-
-	@override
-	String toStringWithIndent(String indent) => '$indent$runtimeType: formatted: $point, '
-		'w: ${size.width}, h: ${size.height}, baseline: ${baselineOffset.toStringAsFixed(2)}';
+  @override
+  String toStringWithIndent(String indent) =>
+      '$indent$runtimeType: formatted: $point, '
+      'w: ${size.width}, h: ${size.height}, baseline: ${baselineOffset.toStringAsFixed(2)}';
 }

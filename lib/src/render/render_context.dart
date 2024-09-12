@@ -46,13 +46,13 @@ class RenderContext {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-      other is RenderContext &&
-        font == other.font &&
-        fontSize == other.fontSize &&
-        mainFontSize == other.mainFontSize &&
-        isBold == other.isBold &&
-        color == other.color &&
-        locale == other.locale;
+        other is RenderContext &&
+            font == other.font &&
+            fontSize == other.fontSize &&
+            mainFontSize == other.mainFontSize &&
+            isBold == other.isBold &&
+            color == other.color &&
+            locale == other.locale;
   }
 
   @override

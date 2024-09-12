@@ -3,7 +3,6 @@
 /// This is the base class for all LaTeX parser exceptions, and it captures the underlying
 /// cause of the error in a human-readable format.
 class LatexParserException implements Exception {
-
   /// Constructs a [LatexParserException] with a message that explains the cause.
   LatexParserException(this.cause);
 
@@ -19,7 +18,6 @@ class LatexParserException implements Exception {
 /// This exception is thrown when the parser encounters a command or a syntax that
 /// it does not recognize or that is not supported.
 class UnknownCommandException extends LatexParserException {
-
   UnknownCommandException(super.cause);
 
   @override
@@ -31,7 +29,6 @@ class UnknownCommandException extends LatexParserException {
 /// This exception is raised when there are errors in the structure of groups or
 /// misplaced/missing braces, which are critical for correct LaTeX parsing.
 class GroupingException extends LatexParserException {
-
   GroupingException(super.cause);
 
   @override
@@ -43,7 +40,6 @@ class GroupingException extends LatexParserException {
 /// This type of error occurs when a function is called with the wrong number of arguments,
 /// or when an argument is of an incorrect type or format.
 class ArgumentsException extends LatexParserException {
-
   ArgumentsException(super.cause);
 
   @override

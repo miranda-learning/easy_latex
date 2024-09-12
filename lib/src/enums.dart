@@ -58,7 +58,6 @@ enum MultiLineTextAlign {
   center,
 }
 
-
 /// An enumeration that defines the error handling strategies during LaTeX parsing.
 ///
 /// This enum allows customization of how parsing errors—both minor and critical—are

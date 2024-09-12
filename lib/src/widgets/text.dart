@@ -5,7 +5,6 @@ import '../enums.dart';
 import '../util/__export.dart';
 import 'span_latex.dart';
 
-
 enum _SpanType {
   regular,
   bold,
@@ -27,7 +26,6 @@ class _SpanItem {
   _SpanItem(this.text, this.type);
 }
 
-
 /// The LText allows you to integrate Markdown and LaTeX into your text.
 ///
 /// This widget supports basic Markdown syntax for styling text and allows the inclusion of LaTeX
@@ -40,14 +38,14 @@ class _SpanItem {
 ///   - ``` `code` ```
 ///   - `\(Latex\)`
 class LText extends StatelessWidget {
-
   /// Constructs a [LText] widget that can display styled text and mathematical expressions.
   ///
   /// The [style] parameter allows for customization of text appearance such as color,
   /// background, font size, and weight. Markdown features enable bold, italic, and code
   /// formatting, with additional support for embedding LaTeX expressions for complex
   /// mathematical notation.
-  LText(this.text, {
+  LText(
+    this.text, {
     super.key,
     TextStyle? style,
     double fontSize = defaultFontSize,
@@ -66,13 +64,13 @@ class LText extends StatelessWidget {
     this.latexSizeFactor = 1,
     this.latexParsing = ParsingMode.strict,
     this.latexLocale,
-  }) :
-      style = style ?? TextStyle(
-        color: color,
-        backgroundColor: backgroundColor,
-        fontSize: fontSize,
-        fontWeight: fontWeight ?? FontWeight.w400,
-      );
+  }) : style = style ??
+            TextStyle(
+              color: color,
+              backgroundColor: backgroundColor,
+              fontSize: fontSize,
+              fontWeight: fontWeight ?? FontWeight.w400,
+            );
 
   /// The default font size used if no specific font size is provided.
   static const double defaultFontSize = 14;
@@ -122,10 +120,8 @@ class LText extends StatelessWidget {
   /// using commas as decimal separators in many European languages.
   final String? latexLocale;
 
-
   @override
   Widget build(BuildContext context) {
-
     // spanItems
     List<_SpanItem> items = _parseText(text);
 
@@ -138,9 +134,12 @@ class LText extends StatelessWidget {
       spans = _buildTextSpans(items);
     }
 
-    TextScaler textScaler = textScaleFactor != null ? TextScaler.linear(textScaleFactor!) : MediaQuery.of(context).textScaler;
+    TextScaler textScaler = textScaleFactor != null
+        ? TextScaler.linear(textScaleFactor!)
+        : MediaQuery.of(context).textScaler;
     DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(context);
-    TextStyle effectiveTextStyle = !style.inherit ? style : defaultTextStyle.style.merge(style);
+    TextStyle effectiveTextStyle =
+        !style.inherit ? style : defaultTextStyle.style.merge(style);
     SelectionRegistrar? registrar = SelectionContainer.maybeOf(context);
 
     Widget result = RichText(
@@ -151,9 +150,11 @@ class LText extends StatelessWidget {
       textScaler: textScaler,
       maxLines: maxLines ?? defaultTextStyle.maxLines,
       textWidthBasis: textWidthBasis ?? defaultTextStyle.textWidthBasis,
-      textHeightBehavior: defaultTextStyle.textHeightBehavior ?? DefaultTextHeightBehavior.maybeOf(context),
+      textHeightBehavior: defaultTextStyle.textHeightBehavior ??
+          DefaultTextHeightBehavior.maybeOf(context),
       selectionRegistrar: registrar,
-      selectionColor: DefaultSelectionStyle.of(context).selectionColor ?? DefaultSelectionStyle.defaultColor,
+      selectionColor: DefaultSelectionStyle.of(context).selectionColor ??
+          DefaultSelectionStyle.defaultColor,
       text: TextSpan(
         style: effectiveTextStyle,
         text: simpleText,
@@ -163,7 +164,8 @@ class LText extends StatelessWidget {
 
     if (registrar != null) {
       result = MouseRegion(
-        cursor: DefaultSelectionStyle.of(context).mouseCursor ?? SystemMouseCursors.text,
+        cursor: DefaultSelectionStyle.of(context).mouseCursor ??
+            SystemMouseCursors.text,
         child: result,
       );
     }
@@ -181,21 +183,27 @@ class LText extends StatelessWidget {
           break;
 
         case _SpanType.bold:
-          spans.add(TextSpan(text: item.text, style: TextStyle(fontWeight: boldWeight)));
+          spans.add(TextSpan(
+              text: item.text, style: TextStyle(fontWeight: boldWeight)));
           break;
 
         case _SpanType.italic:
-          spans.add(TextSpan(text: item.text, style: TextStyle(fontStyle: FontStyle.italic)));
+          spans.add(TextSpan(
+              text: item.text, style: TextStyle(fontStyle: FontStyle.italic)));
           break;
 
         case _SpanType.code:
-          spans.add(TextSpan(text: '\u202F${item.text}\u202F', style: TextStyle(backgroundColor: codeBackgroundColor)));
+          spans.add(TextSpan(
+              text: '\u202F${item.text}\u202F',
+              style: TextStyle(backgroundColor: codeBackgroundColor)));
           break;
 
         case _SpanType.latex:
           spans.add(LatexSpan(
             text: item.text,
-            style: style.copyWith(fontSize: (style.fontSize ?? defaultFontSize) * latexSizeFactor),
+            style: style.copyWith(
+                fontSize:
+                    (style.fontSize ?? defaultFontSize) * latexSizeFactor),
             parsing: latexParsing,
             locale: latexLocale,
           ));
@@ -206,11 +214,11 @@ class LText extends StatelessWidget {
     return spans;
   }
 
-
   static List<_SpanItem> _parseText(String text) {
     if (text.isEmpty) return [];
 
-    String regExpStr = r'(\*\*)(.*?)(\*\*)|(\*)(.*?)(\*)|```(.*?)```|`([^`]*)`|(\\\()(.*?)(\\\))';
+    String regExpStr =
+        r'(\*\*)(.*?)(\*\*)|(\*)(.*?)(\*)|```(.*?)```|`([^`]*)`|(\\\()(.*?)(\\\))';
 
     List<_SpanItem> items = [];
 
@@ -218,9 +226,9 @@ class LText extends StatelessWidget {
     if (matches.isNotEmpty) {
       int lastEnd = 0;
       for (var match in matches) {
-
         if (match.start > lastEnd) {
-          items.add(_SpanItem(text.substringSafe(lastEnd, match.start), _SpanType.regular));
+          items.add(_SpanItem(
+              text.substringSafe(lastEnd, match.start), _SpanType.regular));
         }
 
         if (match.group(1) != null && match.group(2)!.isNotEmpty) {
@@ -239,14 +247,13 @@ class LText extends StatelessWidget {
       }
 
       if (matches.last.end < text.length) {
-        items.add(_SpanItem(text.substringSafe(matches.last.end), _SpanType.regular));
+        items.add(
+            _SpanItem(text.substringSafe(matches.last.end), _SpanType.regular));
       }
-
     } else {
       items.add(_SpanItem(text, _SpanType.regular));
     }
 
     return items;
   }
-
 }

@@ -31,7 +31,9 @@ class LatexFont {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is LatexFont && fontFamily == other.fontFamily && isSansSerif == other.isSansSerif;
+      other is LatexFont &&
+          fontFamily == other.fontFamily &&
+          isSansSerif == other.isSansSerif;
 
   @override
   int get hashCode => Object.hash(fontFamily, isSansSerif);

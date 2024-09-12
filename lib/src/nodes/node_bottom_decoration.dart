@@ -6,108 +6,101 @@ import '../painter/__export.dart';
 import '../render/__export.dart';
 import 'node.dart';
 
-
 enum BottomDecoration {
-	underbrace,
-	underline;
+  underbrace,
+  underline;
 }
 
 class BottomDecorationNode extends LatexRenderNode {
+  final LatexRenderNode child;
+  final BottomDecoration decoration;
 
-	final LatexRenderNode child;
-	final BottomDecoration decoration;
+  BottomDecorationNode(this.child, this.decoration);
 
+  @override
+  void performLayout(RenderContext renderContext, {isDense = false}) {
+    super.performLayout(renderContext);
 
-	BottomDecorationNode(this.child, this.decoration);
+    child.performLayout(renderContext);
 
+    baselineOffset = max(child.baselineOffset, baselineToTop);
+    spacingRequired = child.spacingRequired;
 
-	@override
-	void performLayout(RenderContext renderContext, {isDense = false}) {
-		super.performLayout(renderContext);
+    double width = child.size.width;
+    double height = child.size.height - child.baselineOffset + baselineOffset;
 
-		child.performLayout(renderContext);
+    if (decoration == BottomDecoration.underbrace) {
+      height += fontSize * 0.25;
+      if (child.hasDescender && !child.isMultiline) height += fontSize * 0.15;
+    } else {
+      height += fontSize * 0.1;
+    }
 
-		baselineOffset = max(child.baselineOffset, baselineToTop);
-		spacingRequired = child.spacingRequired;
+    size = Size(width, height);
+  }
 
-		double width = child.size.width;
-		double height = child.size.height - child.baselineOffset + baselineOffset;
+  @override
+  void paint(Canvas canvas, double start, double baseline) {
+    drawPaths(canvas, start, baseline);
+    if (child.size.width < size.width)
+      start += (size.width - child.size.width) / 2;
+    child.paint(canvas, start, baseline);
+  }
 
-		if (decoration == BottomDecoration.underbrace) {
-			height += fontSize*0.25;
-			if (child.hasDescender && !child.isMultiline) height += fontSize*0.15;
-		} else {
-			height += fontSize*0.1;
-		}
+  @override
+  void computeCursorPositions(double start, double baseline,
+      List<Offset> offsets, List<double> fontSizes) {
+    child.computeCursorPositions(start, baseline, offsets, fontSizes);
+  }
 
-		size = Size(width, height);
-	}
+  @override
+  double get topCenterOffset => child.topCenterOffset;
 
-	@override
-	void paint(Canvas canvas, double start, double baseline) {
-		drawPaths(canvas, start, baseline);
-		if (child.size.width < size.width) start += (size.width - child.size.width)/2;
-		child.paint(canvas, start, baseline);
-	}
+  @override
+  double get topRightOffset => child.topRightOffset;
 
-	@override
-	void computeCursorPositions(double start, double baseline, List<Offset> offsets, List<double> fontSizes) {
-		child.computeCursorPositions(start, baseline, offsets, fontSizes);
-	}
+  @override
+  bool get isMultiline => child.isMultiline;
 
+  @override
+  double get baselineToTop => child.baselineToTop;
 
-	@override
-	double get topCenterOffset => child.topCenterOffset;
+  void drawPaths(Canvas canvas, double start, double baseline) {
+    if (decoration == BottomDecoration.underbrace) {
+      Path path = BracketPainter.getCurlyBracketPath(
+          fontSize * 0.4, child.size.width, fontSize);
+      path = LPainter.rotatePath(path, 270);
 
-	@override
-	double get topRightOffset => child.topRightOffset;
+      double y = fontSize * 1.4;
+      if (child.hasDescender && !child.isMultiline) y += fontSize * 0.15;
+      path = LPainter.translatePath(path, start + child.size.width / 2, y);
+      canvas.drawPath(path, Paint()..color = renderContext!.color);
+    } else if (decoration == BottomDecoration.underline) {
+      Paint paint = Paint()
+        ..color = renderContext!.color
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = renderContext!.fontSize / 28
+        ..strokeCap = StrokeCap.square;
 
-	@override
-	bool get isMultiline => child.isMultiline;
+      start += child.topCenterOffset - child.topCenterOffset;
+      double end = start + child.size.width;
 
-	@override
-	double get baselineToTop => child.baselineToTop;
+      double y = baseline - child.baselineOffset + child.size.height;
+      if (!child.hasDescender && !child.isMultiline) y -= fontSize * 0.15;
 
+      canvas.drawLine(Offset(start, y), Offset(end, y), paint);
+    }
+  }
 
-	void drawPaths(Canvas canvas, double start, double baseline) {
+  @override
+  String toString() => toStringWithIndent('');
 
-		if (decoration == BottomDecoration.underbrace) {
-			Path path = BracketPainter.getCurlyBracketPath(fontSize*0.4, child.size.width, fontSize);
-			path = LPainter.rotatePath(path, 270);
+  @override
+  String toStringWithIndent(String indent) {
+    String str = '$indent$runtimeType: $decoration, '
+        'w: ${size.width}, h: ${size.height}, baseline: ${baselineOffset.toStringAsFixed(2)}';
 
-			double y = fontSize*1.4;
-			if (child.hasDescender && !child.isMultiline) y += fontSize*0.15;
-			path = LPainter.translatePath(path, start+child.size.width/2, y);
-			canvas.drawPath(path, Paint()..color = renderContext!.color);
-
-		} else if (decoration == BottomDecoration.underline) {
-			Paint paint = Paint()
-				..color = renderContext!.color
-				..style = PaintingStyle.stroke
-				..strokeWidth = renderContext!.fontSize / 28
-				..strokeCap = StrokeCap.square;
-
-			start += child.topCenterOffset - child.topCenterOffset;
-			double end = start + child.size.width;
-
-			double y = baseline - child.baselineOffset + child.size.height;
-			if (!child.hasDescender && !child.isMultiline) y -= fontSize*0.15;
-
-			canvas.drawLine(Offset(start, y), Offset(end, y), paint);
-		}
-	}
-
-
-	@override
-	String toString() => toStringWithIndent('');
-
-	@override
-	String toStringWithIndent(String indent) {
-		String str = '$indent$runtimeType: $decoration, '
-			'w: ${size.width}, h: ${size.height}, baseline: ${baselineOffset.toStringAsFixed(2)}';
-
-		str += '\n$indent  ${child.toStringWithIndent('$indent  ')}';
-		return str;
-	}
-
+    str += '\n$indent  ${child.toStringWithIndent('$indent  ')}';
+    return str;
+  }
 }

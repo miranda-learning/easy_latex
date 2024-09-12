@@ -13,7 +13,9 @@ extension CanvasExtension on Canvas {
   }
 
   void drawDashedPath(Path path, Paint paint,
-      [List<double> dashArray = const [3, 1], double dashOffset = 0, bool drawOdd = false]) {
+      [List<double> dashArray = const [3, 1],
+      double dashOffset = 0,
+      bool drawOdd = false]) {
     Path dashedPath = Path();
 
     for (var metric in path.computeMetrics()) {
@@ -23,9 +25,11 @@ extension CanvasExtension on Canvas {
       double currentPosition = dashOffset;
       int i = 0;
       while (currentPosition < metric.length) {
-        double newPosition = (currentPosition + dashArray[i % dashArray.length]).clampTop(metric.length);
+        double newPosition = (currentPosition + dashArray[i % dashArray.length])
+            .clampTop(metric.length);
         if (i % 2 == (drawOdd ? 1 : 0)) {
-          dashedPath.addPath(metric.extractPath(currentPosition, newPosition), Offset.zero);
+          dashedPath.addPath(
+              metric.extractPath(currentPosition, newPosition), Offset.zero);
         }
         currentPosition = newPosition;
         i++;
@@ -38,11 +42,14 @@ extension CanvasExtension on Canvas {
 
 /// DoubleExtension
 extension DoubleExtension on double {
-  Duration get toDuration => Duration(seconds: toInt(), milliseconds: (this % 1 * 1000).toInt());
+  Duration get toDuration =>
+      Duration(seconds: toInt(), milliseconds: (this % 1 * 1000).toInt());
 
-  double clampBottom(double? lowerLimit) => lowerLimit == null ? this : math.max(this, lowerLimit);
+  double clampBottom(double? lowerLimit) =>
+      lowerLimit == null ? this : math.max(this, lowerLimit);
 
-  double clampTop(double? upperLimit) => upperLimit == null ? this : math.min(this, upperLimit);
+  double clampTop(double? upperLimit) =>
+      upperLimit == null ? this : math.min(this, upperLimit);
 }
 
 /// IntExtension
@@ -274,7 +281,8 @@ extension IterableExtension<E> on Iterable<E> {
   }
 
   /// Returns a new list with mapped entries
-  List<T> mapToListWithIndex<T>(T Function(int, E) map, {bool Function(E)? where}) {
+  List<T> mapToListWithIndex<T>(T Function(int, E) map,
+      {bool Function(E)? where}) {
     List<T> newList = [];
     int i = 0;
     for (E e in this) {
@@ -408,7 +416,8 @@ extension IterableExtension<E> on Iterable<E> {
     return s;
   }
 
-  double? averageDouble(double Function(E) getValue, {bool Function(E)? where}) {
+  double? averageDouble(double Function(E) getValue,
+      {bool Function(E)? where}) {
     double sum = 0;
     int count = 0;
     for (E e in this) {

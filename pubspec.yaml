@@ -1,5 +1,5 @@
 name: easy_latex
-version: 0.0.1
+version: 1.0.0
 description: >-
   Effortlessly integrate LaTeX in your Flutter apps for rendering complex 
   mathematical expressions. Ideal for educational and scientific applications, 

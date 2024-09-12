@@ -2,24 +2,22 @@ import '../font/__export.dart';
 import '../nodes/__export.dart';
 import 'tokens.dart';
 
-
 class SyntaxParser {
+  static bool isSingleCharacterElement(String str) =>
+      _singleCharacterElements.containsKey(str);
 
-  static bool isSingleCharacterElement(String str) => _singleCharacterElements.containsKey(str);
-
-  static dynamic parseSingleCharacterElement(String str) => _singleCharacterElements[str]?.call();
+  static dynamic parseSingleCharacterElement(String str) =>
+      _singleCharacterElements[str]?.call();
 
   static final Map<String, Function> _singleCharacterElements = {
     '^': () => FunctionalToken(FunctionType.superscript, cmd: '^'),
     '_': () => FunctionalToken(FunctionType.subscript, cmd: '_'),
-
     '{': () => BracketToken(BracketTokenType.leftCurly),
     '}': () => BracketToken(BracketTokenType.rightCurly),
     '[': () => BracketToken(BracketTokenType.leftSquare),
     ']': () => BracketToken(BracketTokenType.rightSquare),
     '(': () => BracketNode(BracketType.round, BracketOrientation.left),
     ')': () => BracketNode(BracketType.round, BracketOrientation.right),
-
     '+': () => TextNode('+', spacingRequired: true),
     '-': () => TextNode('\u2212', spacingRequired: true),
     '*': () => TextNode('*', spacingRequired: true),
@@ -27,23 +25,20 @@ class SyntaxParser {
     '=': () => TextNode('=', spacingRequired: true),
     '?': () => TextNode('?'),
     '!': () => TextNode('!'),
-
     ':': () => TextNode(':', spacingRequired: true),
     '>': () => TextNode('>', spacingRequired: true),
     '<': () => TextNode('<', spacingRequired: true),
     '~': () => TextNode('\u00a0'),
     '|': () => TextNode('\u2223'),
     '`': () => TextNode('\u2018'),
-
     ',': () => TextNode(',\u200A'),
     ';': () => TextNode(';\u200A'),
-
     '&': () => NewColumnNode(),
     '°': () => TextNode('\u00B0'),
   };
 
-
-  static bool isSingleCharLatexCommand(String str) => _singleCharacterLatexCommands.contains(str);
+  static bool isSingleCharLatexCommand(String str) =>
+      _singleCharacterLatexCommands.contains(str);
 
   static const Set<String> _singleCharacterLatexCommands = {
     // Newline
@@ -89,8 +84,12 @@ class SyntaxParser {
     // Brackets
     'left(': () => BracketToken(BracketTokenType.leftRound),
     'right)': () => BracketToken(BracketTokenType.rightRound),
-    'left{': () => BracketToken(BracketTokenType.leftCurly, showGroupCurlyBrackets: true), // original latex: \left\{, but _cleanInitialExpr() remove the second \
-    'right}': () => BracketToken(BracketTokenType.rightCurly, showGroupCurlyBrackets: true), // original latex: \right\}, but _cleanInitialExpr() remove the second \
+    'left{': () => BracketToken(BracketTokenType.leftCurly,
+        showGroupCurlyBrackets:
+            true), // original latex: \left\{, but _cleanInitialExpr() remove the second \
+    'right}': () => BracketToken(BracketTokenType.rightCurly,
+        showGroupCurlyBrackets:
+            true), // original latex: \right\}, but _cleanInitialExpr() remove the second \
     'left[': () => BracketToken(BracketTokenType.leftSquare),
     'right]': () => BracketToken(BracketTokenType.rightSquare),
     'llbracket': () => BracketToken(BracketTokenType.doubleLeftSquare),
@@ -110,7 +109,7 @@ class SyntaxParser {
     'rgroup': () => TextNode('\u27ef'),
 
     // Cases
-    'cases':        () => FunctionalToken(FunctionType.cases,       cmd: 'cases'),
+    'cases': () => FunctionalToken(FunctionType.cases, cmd: 'cases'),
 
     // Norm
     'big|': () => NormNode(NormSize.big),
@@ -119,57 +118,98 @@ class SyntaxParser {
     'Bigg|': () => NormNode(NormSize.Bigg),
 
     // Top decoration
-    'bar':                () => FunctionalToken(FunctionType.topDecoration, cmd: 'bar',                topDecoration: TopDecoration.bar),
-    'dot':                () => FunctionalToken(FunctionType.topDecoration, cmd: 'dot',                topDecoration: TopDecoration.dot),
-    'ddot':               () => FunctionalToken(FunctionType.topDecoration, cmd: 'ddot',               topDecoration: TopDecoration.ddot),
-    'dddot':              () => FunctionalToken(FunctionType.topDecoration, cmd: 'dddot',              topDecoration: TopDecoration.dddot),
-    'hat':                () => FunctionalToken(FunctionType.topDecoration, cmd: 'hat',                topDecoration: TopDecoration.hat),
-    'overbrace':          () => FunctionalToken(FunctionType.topDecoration, cmd: 'overbrace',          topDecoration: TopDecoration.overbrace),
-    'overline':           () => FunctionalToken(FunctionType.topDecoration, cmd: 'overline',           topDecoration: TopDecoration.overline),
-    'overleftarrow':      () => FunctionalToken(FunctionType.topDecoration, cmd: 'overleftarrow',      topDecoration: TopDecoration.overleftarrow),
-    'overleftrightarrow': () => FunctionalToken(FunctionType.topDecoration, cmd: 'overleftrightarrow', topDecoration: TopDecoration.overleftrightarrow),
-    'overrightarrow':     () => FunctionalToken(FunctionType.topDecoration, cmd: 'overrightarrow',     topDecoration: TopDecoration.overrightarrow),
-    'tilde':              () => FunctionalToken(FunctionType.topDecoration, cmd: 'tilde',              topDecoration: TopDecoration.tilde),
-    'vec':                () => FunctionalToken(FunctionType.topDecoration, cmd: 'vec',                topDecoration: TopDecoration.vec),
-    'widehat':            () => FunctionalToken(FunctionType.topDecoration, cmd: 'widehat',            topDecoration: TopDecoration.widehat),
-    'widetilde':          () => FunctionalToken(FunctionType.topDecoration, cmd: 'widetilde',          topDecoration: TopDecoration.widetilde),
+    'bar': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'bar', topDecoration: TopDecoration.bar),
+    'dot': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'dot', topDecoration: TopDecoration.dot),
+    'ddot': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'ddot', topDecoration: TopDecoration.ddot),
+    'dddot': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'dddot', topDecoration: TopDecoration.dddot),
+    'hat': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'hat', topDecoration: TopDecoration.hat),
+    'overbrace': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'overbrace', topDecoration: TopDecoration.overbrace),
+    'overline': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'overline', topDecoration: TopDecoration.overline),
+    'overleftarrow': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'overleftarrow', topDecoration: TopDecoration.overleftarrow),
+    'overleftrightarrow': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'overleftrightarrow',
+        topDecoration: TopDecoration.overleftrightarrow),
+    'overrightarrow': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'overrightarrow', topDecoration: TopDecoration.overrightarrow),
+    'tilde': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'tilde', topDecoration: TopDecoration.tilde),
+    'vec': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'vec', topDecoration: TopDecoration.vec),
+    'widehat': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'widehat', topDecoration: TopDecoration.widehat),
+    'widetilde': () => FunctionalToken(FunctionType.topDecoration,
+        cmd: 'widetilde', topDecoration: TopDecoration.widetilde),
 
     // Bottom decoration
-    'underbrace':         () => FunctionalToken(FunctionType.bottomDecoration, cmd: 'underbrace', bottomDecoration: BottomDecoration.underbrace),
-    'underline':          () => FunctionalToken(FunctionType.bottomDecoration, cmd: 'underline',  bottomDecoration: BottomDecoration.underline),
+    'underbrace': () => FunctionalToken(FunctionType.bottomDecoration,
+        cmd: 'underbrace', bottomDecoration: BottomDecoration.underbrace),
+    'underline': () => FunctionalToken(FunctionType.bottomDecoration,
+        cmd: 'underline', bottomDecoration: BottomDecoration.underline),
 
     // Color
-    'color':        () => FunctionalToken(FunctionType.color,       cmd: 'color'),
+    'color': () => FunctionalToken(FunctionType.color, cmd: 'color'),
 
     // Fonts
-    'bm':           () => FunctionalToken(FunctionType.font, cmd: 'bm',           isBold: true),
-    'boldsymbol':   () => FunctionalToken(FunctionType.font, cmd: 'boldsymbol',   isBold: true),
-    'mathbb':       () => FunctionalToken(FunctionType.font, cmd: 'mathbb',       font: AmsLatexFont()),
-    'mathbf':       () => FunctionalToken(FunctionType.font, cmd: 'mathbf',       font: MainLatexFont(), isBold: true),
-    'mathcal':      () => FunctionalToken(FunctionType.font, cmd: 'mathcal',      font: CalLatexFont()),
-    'mathfrak':     () => FunctionalToken(FunctionType.font, cmd: 'mathfrak',     font: FrakturLatexFont()),
+    'bm': () => FunctionalToken(FunctionType.font, cmd: 'bm', isBold: true),
+    'boldsymbol': () =>
+        FunctionalToken(FunctionType.font, cmd: 'boldsymbol', isBold: true),
+    'mathbb': () =>
+        FunctionalToken(FunctionType.font, cmd: 'mathbb', font: AmsLatexFont()),
+    'mathbf': () => FunctionalToken(FunctionType.font,
+        cmd: 'mathbf', font: MainLatexFont(), isBold: true),
+    'mathcal': () => FunctionalToken(FunctionType.font,
+        cmd: 'mathcal', font: CalLatexFont()),
+    'mathfrak': () => FunctionalToken(FunctionType.font,
+        cmd: 'mathfrak', font: FrakturLatexFont()),
     // 'mathit':       () => FunctionalToken(FunctionType.font, cmd: 'mathit',       font: MainItalicLatexFont()), no italic supported for 0-9
-    'mathrm':       () => FunctionalToken(FunctionType.font, cmd: 'mathrm',       font: MainLatexFont()),
-    'mathscr':      () => FunctionalToken(FunctionType.font, cmd: 'mathscr',      font: ScriptLatexFont()),
-    'mathtt':       () => FunctionalToken(FunctionType.font, cmd: 'mathtt',       font: TypewriterLatexFont()),
-    'operatorname': () => FunctionalToken(FunctionType.font, cmd: 'operatorname', font: MainLatexFont()), // TODO
-    'text':         () => FunctionalToken(FunctionType.font, cmd: 'text',         font: MainLatexFont()),
-    'textrm':       () => FunctionalToken(FunctionType.font, cmd: 'textrm',       font: MainLatexFont()),
+    'mathrm': () => FunctionalToken(FunctionType.font,
+        cmd: 'mathrm', font: MainLatexFont()),
+    'mathscr': () => FunctionalToken(FunctionType.font,
+        cmd: 'mathscr', font: ScriptLatexFont()),
+    'mathtt': () => FunctionalToken(FunctionType.font,
+        cmd: 'mathtt', font: TypewriterLatexFont()),
+    'operatorname': () => FunctionalToken(FunctionType.font,
+        cmd: 'operatorname', font: MainLatexFont()), // TODO
+    'text': () =>
+        FunctionalToken(FunctionType.font, cmd: 'text', font: MainLatexFont()),
+    'textrm': () => FunctionalToken(FunctionType.font,
+        cmd: 'textrm', font: MainLatexFont()),
 
     // Big, Lim, Prod, Sum
-    'bigcap':       () => FunctionalToken(FunctionType.limProdSum,  cmd: 'bigcap',    limProdSumType: LimProdSumType.bigcap),
-    'bigcup':       () => FunctionalToken(FunctionType.limProdSum,  cmd: 'bigcup',    limProdSumType: LimProdSumType.bigcup),
-    'bigodot':      () => FunctionalToken(FunctionType.limProdSum,  cmd: 'bigodot',   limProdSumType: LimProdSumType.bigodot),
-    'bigoplus':     () => FunctionalToken(FunctionType.limProdSum,  cmd: 'bigoplus',  limProdSumType: LimProdSumType.bigoplus),
-    'bigotimes':    () => FunctionalToken(FunctionType.limProdSum,  cmd: 'bigotimes', limProdSumType: LimProdSumType.bigotimes),
-    'bigsqcup':     () => FunctionalToken(FunctionType.limProdSum,  cmd: 'bigsqcup',  limProdSumType: LimProdSumType.bigsqcup),
-    'biguplus':     () => FunctionalToken(FunctionType.limProdSum,  cmd: 'biguplus',  limProdSumType: LimProdSumType.biguplus),
-    'bigvee':       () => FunctionalToken(FunctionType.limProdSum,  cmd: 'bigvee',    limProdSumType: LimProdSumType.bigvee),
-    'bigwedge':     () => FunctionalToken(FunctionType.limProdSum,  cmd: 'bigwedge',  limProdSumType: LimProdSumType.bigwedge),
-    'coprod':       () => FunctionalToken(FunctionType.limProdSum,  cmd: 'coprod',    limProdSumType: LimProdSumType.coprod),
-    'lim':          () => FunctionalToken(FunctionType.limProdSum,  cmd: 'lim',       limProdSumType: LimProdSumType.lim),
-    'prod':         () => FunctionalToken(FunctionType.limProdSum,  cmd: 'prod',      limProdSumType: LimProdSumType.prod),
-    'sum':          () => FunctionalToken(FunctionType.limProdSum,  cmd: 'sum',       limProdSumType: LimProdSumType.sum),
+    'bigcap': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'bigcap', limProdSumType: LimProdSumType.bigcap),
+    'bigcup': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'bigcup', limProdSumType: LimProdSumType.bigcup),
+    'bigodot': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'bigodot', limProdSumType: LimProdSumType.bigodot),
+    'bigoplus': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'bigoplus', limProdSumType: LimProdSumType.bigoplus),
+    'bigotimes': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'bigotimes', limProdSumType: LimProdSumType.bigotimes),
+    'bigsqcup': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'bigsqcup', limProdSumType: LimProdSumType.bigsqcup),
+    'biguplus': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'biguplus', limProdSumType: LimProdSumType.biguplus),
+    'bigvee': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'bigvee', limProdSumType: LimProdSumType.bigvee),
+    'bigwedge': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'bigwedge', limProdSumType: LimProdSumType.bigwedge),
+    'coprod': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'coprod', limProdSumType: LimProdSumType.coprod),
+    'lim': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'lim', limProdSumType: LimProdSumType.lim),
+    'prod': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'prod', limProdSumType: LimProdSumType.prod),
+    'sum': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'sum', limProdSumType: LimProdSumType.sum),
 
     // Integrals
     'int': () => IntNode(),
@@ -185,15 +225,19 @@ class SyntaxParser {
     'intinline': () => IntNode(isInline: true), // custom
 
     // Matrix
-    'matrix':       () => FunctionalToken(FunctionType.matrix,      cmd: 'matrix',  bracketType: BracketType.none),
-    'pmatrix':      () => FunctionalToken(FunctionType.matrix,      cmd: 'pmatrix', bracketType: BracketType.round),
-    'bmatrix':      () => FunctionalToken(FunctionType.matrix,      cmd: 'bmatrix', bracketType: BracketType.square),
-    'Bmatrix':      () => FunctionalToken(FunctionType.matrix,      cmd: 'Bmatrix', bracketType: BracketType.curly),
+    'matrix': () => FunctionalToken(FunctionType.matrix,
+        cmd: 'matrix', bracketType: BracketType.none),
+    'pmatrix': () => FunctionalToken(FunctionType.matrix,
+        cmd: 'pmatrix', bracketType: BracketType.round),
+    'bmatrix': () => FunctionalToken(FunctionType.matrix,
+        cmd: 'bmatrix', bracketType: BracketType.square),
+    'Bmatrix': () => FunctionalToken(FunctionType.matrix,
+        cmd: 'Bmatrix', bracketType: BracketType.curly),
 
     // Binom, Frac, Sqrt
-    'binom':        () => FunctionalToken(FunctionType.binom,       cmd: 'binom'),
-    'frac':         () => FunctionalToken(FunctionType.frac,        cmd: 'frac'),
-    'sqrt':         () => FunctionalToken(FunctionType.sqrt,        cmd: 'sqrt'),
+    'binom': () => FunctionalToken(FunctionType.binom, cmd: 'binom'),
+    'frac': () => FunctionalToken(FunctionType.frac, cmd: 'frac'),
+    'sqrt': () => FunctionalToken(FunctionType.sqrt, cmd: 'sqrt'),
 
     // Symbols
     '#': () => TextNode('\u0023'),
@@ -224,38 +268,69 @@ class SyntaxParser {
     // 'allowbreak': () => TextNode(null),
 
     // Greek
-    'alpha': () => TextNode('\u03b1', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'beta': () => TextNode('\u03b2', font: MainItalicLatexFont(), textType: TextType.upperCase),
-    'gamma': () => TextNode('\u03b3', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'delta': () => TextNode('\u03b4', font: MainItalicLatexFont(), textType: TextType.upperCase),
-    'epsilon': () => TextNode('\u03f5', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'zeta': () => TextNode('\u03b6', font: MainItalicLatexFont(), textType: TextType.upperCase),
-    'eta': () => TextNode('\u03b7', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'theta': () => TextNode('\u03b8', font: MainItalicLatexFont(), textType: TextType.upperCase),
-    'iota': () => TextNode('\u03b9', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'kappa': () => TextNode('\u03ba', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'lambda': () => TextNode('\u03bb', font: MainItalicLatexFont(), textType: TextType.upperCase),
-    'mu': () => TextNode('\u03bc', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'nu': () => TextNode('\u03bd', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'xi': () => TextNode('\u03be', font: MainItalicLatexFont(), textType: TextType.upperCase),
-    'omicron': () => TextNode('\u03bf', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'pi': () => TextNode('\u03c0', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'rho': () => TextNode('\u03c1', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'sigma': () => TextNode('\u03c3', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'tau': () => TextNode('\u03c4', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'upsilon': () => TextNode('\u03c5', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'phi': () => TextNode('\u03d5', font: MainItalicLatexFont(), textType: TextType.upperCase),
-    'chi': () => TextNode('\u03c7', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'psi': () => TextNode('\u03c8', font: MainItalicLatexFont(), textType: TextType.upperCase),
-    'omega': () => TextNode('\u03c9', font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'alpha': () => TextNode('\u03b1',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'beta': () => TextNode('\u03b2',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'gamma': () => TextNode('\u03b3',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'delta': () => TextNode('\u03b4',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'epsilon': () => TextNode('\u03f5',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'zeta': () => TextNode('\u03b6',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'eta': () => TextNode('\u03b7',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'theta': () => TextNode('\u03b8',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'iota': () => TextNode('\u03b9',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'kappa': () => TextNode('\u03ba',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'lambda': () => TextNode('\u03bb',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'mu': () => TextNode('\u03bc',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'nu': () => TextNode('\u03bd',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'xi': () => TextNode('\u03be',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'omicron': () => TextNode('\u03bf',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'pi': () => TextNode('\u03c0',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'rho': () => TextNode('\u03c1',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'sigma': () => TextNode('\u03c3',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'tau': () => TextNode('\u03c4',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'upsilon': () => TextNode('\u03c5',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'phi': () => TextNode('\u03d5',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'chi': () => TextNode('\u03c7',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'psi': () => TextNode('\u03c8',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'omega': () => TextNode('\u03c9',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
 
-    'varepsilon': () => TextNode('\u03b5', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'vartheta': () => TextNode('\u03d1', font: MainItalicLatexFont(), textType: TextType.upperCase),
-    'varkappa': () => TextNode('\u03f0', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'varpi': () => TextNode('\u03d6', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'varrho': () => TextNode('\u03f1', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'varsigma': () => TextNode('\u03c2', font: MainItalicLatexFont(), textType: TextType.lowerCase),
-    'varphi': () => TextNode('\u03c6', font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'varepsilon': () => TextNode('\u03b5',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'vartheta': () => TextNode('\u03d1',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'varkappa': () => TextNode('\u03f0',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'varpi': () => TextNode('\u03d6',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'varrho': () => TextNode('\u03f1',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'varsigma': () => TextNode('\u03c2',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
+    'varphi': () => TextNode('\u03c6',
+        font: MainItalicLatexFont(), textType: TextType.lowerCase),
 
     // Capital greek Latex-letters are not italic (capital latin are italic). We us lowerCase since the height of regular letters is differently defined
     'Alpha': () => TextNode('A', textType: TextType.upperCase),
@@ -330,7 +405,8 @@ class SyntaxParser {
     'Pr': () => TextNode('Pr', textType: TextType.upperCase),
 
     // Special letters
-    'AA': () => TextNode('\u212b', font: MainItalicLatexFont(), textType: TextType.upperCase),
+    'AA': () => TextNode('\u212b',
+        font: MainItalicLatexFont(), textType: TextType.upperCase),
 
     // Dots
     'cdot': () => TextNode('\u22c5', spacingRequired: true),
@@ -352,7 +428,6 @@ class SyntaxParser {
     'mathellipsis': () => TextNode('\u2026'),
     'therefore': () => TextNode('\u2234'),
     'because': () => TextNode('\u2235'),
-
 
     // Comparing
     'coloneqq': () => ColonEqqNode(spacingRequired: true),
@@ -492,7 +567,6 @@ class SyntaxParser {
     'ntriangleright': () => TextNode('\u22eb', spacingRequired: true),
     'ntrianglerighteq': () => TextNode('\u22ed', spacingRequired: true),
 
-
     // Subsets and Supersets
     'subset': () => TextNode('\u2282'),
     'nsubset': () => TextNode('\u2284'),
@@ -533,7 +607,6 @@ class SyntaxParser {
 
     'backepsilon': () => TextNode('\u220d'),
 
-
     // Arrows
     'leftarrow': () => TextNode('\u2190', spacingRequired: true),
     'longleftarrow': () => TextNode('\u27f5', spacingRequired: true),
@@ -551,8 +624,10 @@ class SyntaxParser {
     'Longleftrightarrow': () => TextNode('\u27fa', spacingRequired: true),
 
     'gets': () => TextNode('\u2190', spacingRequired: true),
-    'to': () => TextNode('\u2192'), // can't add spacing, since it is used in too many units
-    'mapsto': () => TextNode('\u21a6'), // can't add spacing, since it is used in too many units
+    'to': () => TextNode(
+        '\u2192'), // can't add spacing, since it is used in too many units
+    'mapsto': () => TextNode(
+        '\u21a6'), // can't add spacing, since it is used in too many units
     'longmapsto': () => TextNode('\u27fc', spacingRequired: true),
 
     'nearrow': () => TextNode('\u2197', spacingRequired: true),
@@ -664,7 +739,6 @@ class SyntaxParser {
     'S': () => TextNode('\u00a7'),
     'P': () => TextNode('\u00b6'),
 
-
     // Others 2
     'perp': () => TextNode('\u22a5'),
     'vdash': () => TextNode('\u22a2'),
@@ -746,7 +820,6 @@ class SyntaxParser {
     'Box': () => TextNode('\u25a1'),
     'Diamond': () => TextNode('\u25ca'),
 
-
     // Others 3
     'infty': () => TextNode('\u221e'),
     'prime': () => TextNode('\u2032'),
@@ -797,7 +870,6 @@ class SyntaxParser {
     'boxdot': () => TextNode('\u22a1'),
     'boxtimes': () => TextNode('\u22a0'),
 
-
     // Others 4
     'circledS': () => TextNode('\u24c8'),
     'circledR': () => TextNode('\u00ae'),
@@ -842,12 +914,17 @@ class SyntaxParser {
     'intercal': () => TextNode('\u22ba'),
 
     // Set of numbers
-    'N': () => TextNode('N', font: AmsLatexFont(), textType: TextType.upperCase),
-    'Z': () => TextNode('Z', font: AmsLatexFont(), textType: TextType.upperCase),
-    'Q': () => TextNode('Q', font: AmsLatexFont(), textType: TextType.upperCase),
-    'R': () => TextNode('R', font: AmsLatexFont(), textType: TextType.upperCase),
-    'C': () => TextNode('C', font: AmsLatexFont(), textType: TextType.upperCase),
-    'H': () => TextNode('H', font: AmsLatexFont(), textType: TextType.upperCase),
+    'N': () =>
+        TextNode('N', font: AmsLatexFont(), textType: TextType.upperCase),
+    'Z': () =>
+        TextNode('Z', font: AmsLatexFont(), textType: TextType.upperCase),
+    'Q': () =>
+        TextNode('Q', font: AmsLatexFont(), textType: TextType.upperCase),
+    'R': () =>
+        TextNode('R', font: AmsLatexFont(), textType: TextType.upperCase),
+    'C': () =>
+        TextNode('C', font: AmsLatexFont(), textType: TextType.upperCase),
+    'H': () =>
+        TextNode('H', font: AmsLatexFont(), textType: TextType.upperCase),
   };
-
 }
