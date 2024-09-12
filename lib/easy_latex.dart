@@ -1,17 +1,9 @@
 library easy_latex;
 
-import 'package:flutter/widgets.dart';
-
-class TestWidget extends StatelessWidget {
-  final double variable;
-
-  const TestWidget({
-    super.key,
-    required this.variable,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+export 'src/enums.dart';
+export 'src/font/latex_font.dart';
+export 'src/widgets/span_latex.dart';
+export 'src/parser/exceptions.dart';
+export 'src/parser/parser_latex.dart';
+export 'src/widgets/text.dart';
+export 'src/widgets/widget_latex.dart';
