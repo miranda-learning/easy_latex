@@ -1,9 +1,6 @@
 name: easy_latex
 version: 1.0.0
-description: >-
-  Effortlessly integrate LaTeX in your Flutter apps for rendering complex 
-  mathematical expressions. Ideal for educational and scientific applications, 
-  this plugin provides dynamic LaTeX rendering with easy setup and customization.
+description: This plugin enables dynamic LaTeX rendering of complex math expressions.
 repository: https://github.com/miranda-learning/easy_latex
 homepage: https://easylatex.open.miranda.works/
 

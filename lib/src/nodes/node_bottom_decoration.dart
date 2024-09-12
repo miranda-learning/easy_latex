@@ -42,8 +42,9 @@ class BottomDecorationNode extends LatexRenderNode {
   @override
   void paint(Canvas canvas, double start, double baseline) {
     drawPaths(canvas, start, baseline);
-    if (child.size.width < size.width)
+    if (child.size.width < size.width) {
       start += (size.width - child.size.width) / 2;
+    }
     child.paint(canvas, start, baseline);
   }
 

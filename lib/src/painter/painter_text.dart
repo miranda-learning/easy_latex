@@ -23,7 +23,6 @@ class LatexTextPainter extends TextPainter {
           text: _buildTextSpan(rawText, fontSize, font, isBold, color, bgColor),
           textDirection: TextDirection.ltr,
           textScaler: TextScaler.noScaling,
-          enableRoundingHack: false,
         );
 
   factory LatexTextPainter.withRenderContext(
