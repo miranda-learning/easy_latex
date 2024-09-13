@@ -1,5 +1,5 @@
 name: easy_latex
-version: 1.0.0
+version: 1.0.2
 description: This plugin enables dynamic LaTeX rendering of complex math expressions.
 repository: https://github.com/miranda-learning/easy_latex
 homepage: https://easylatex.open.miranda.works/

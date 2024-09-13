@@ -9,12 +9,12 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('Render test locale_decimal_en', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'.3 \ 3. \ 2.3',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.none,
@@ -31,12 +31,12 @@ void main() {
 
   testWidgets('Render test locale_decimal_de', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'.3 \ 3. \ 2.3',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.none,
@@ -53,12 +53,12 @@ void main() {
 
   testWidgets('Render test locale_comma_en', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'2\comma 3',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.none,
@@ -75,12 +75,12 @@ void main() {
 
   testWidgets('Render test locale_comma_de', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'2\comma 33',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.none,
@@ -97,12 +97,12 @@ void main() {
 
   testWidgets('Render test locale_allPoints_en', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'...',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.none,
@@ -119,12 +119,12 @@ void main() {
 
   testWidgets('Render test locale_allPoints_de', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'...',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.none,
@@ -141,12 +141,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_28', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 28.0,
           wrapMode: LatexWrapMode.none,
@@ -163,12 +163,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_26', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 26.0,
           wrapMode: LatexWrapMode.none,
@@ -185,12 +185,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_24', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 24.0,
           wrapMode: LatexWrapMode.none,
@@ -207,12 +207,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_22', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 22.0,
           wrapMode: LatexWrapMode.none,
@@ -229,12 +229,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_20', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 20.0,
           wrapMode: LatexWrapMode.none,
@@ -251,12 +251,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_18', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 18.0,
           wrapMode: LatexWrapMode.none,
@@ -273,12 +273,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_16', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 16.0,
           wrapMode: LatexWrapMode.none,
@@ -295,12 +295,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_14', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 14.0,
           wrapMode: LatexWrapMode.none,
@@ -317,12 +317,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_12', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 12.0,
           wrapMode: LatexWrapMode.none,
@@ -339,12 +339,12 @@ void main() {
 
   testWidgets('Render test fontSize_fontSize_10', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'a1b2c3d4e5f6g7h8i9j0',
           fontSize: 10.0,
           wrapMode: LatexWrapMode.none,
@@ -362,8 +362,8 @@ void main() {
   testWidgets('Render test singleChar_singleChar_1',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a{b}c[d]e(f)g",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -375,8 +375,8 @@ void main() {
   testWidgets('Render test singleChar_singleChar_2',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"1+2-3*4/5=6?7!8",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -388,8 +388,8 @@ void main() {
   testWidgets('Render test singleChar_singleChar_3',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child:
           Latex(r": ><~|`,;&°", fontSize: 32.0, backgroundColor: Colors.white),
@@ -400,8 +400,8 @@ void main() {
 
   testWidgets('Render test subSuper_sub_super_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"1^2 a^2 b^2 A^2 x_2 x^2_2 x_1 x^{\frac{1}{1}} x_2^{\frac{1}{1}} x^{\sqrt[4]{1}} x_2^{\frac{1}{1}}",
@@ -414,8 +414,8 @@ void main() {
 
   testWidgets('Render test subSuper_sub_super_2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"^14_{~\;6}C - ^235_{~\;92}U = ^14C",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -426,8 +426,8 @@ void main() {
 
   testWidgets('Render test subSuper_sub_super_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\int_x^2 \int^x_2 \int_x \int^2 \int_x^M 1_x^2 x_x^2 M_x^2 x dx",
@@ -441,8 +441,8 @@ void main() {
   testWidgets('Render test newlines_newline_with__1',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\frac{4}{3} \\ + 3 \\ + 3 + 4\\3",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -454,8 +454,8 @@ void main() {
   testWidgets('Render test newlines_newline_with__2',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\left( \frac{4}{3} \\ + 3 \\ + 3 + 4\\3 \right) \frac{4\\3}{3}",
@@ -469,12 +469,12 @@ void main() {
   testWidgets('Render test newlines_wrapMode_simple_1',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'1000 + 2000 + 3000 + 4000 + 5000 \Rightarrow 6000 + 7000 + 8000 \Rightarrow 6000 + 7000 + 8000',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.simple,
@@ -492,12 +492,12 @@ void main() {
   testWidgets('Render test newlines_wrapMode_simple_2',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'(1000 + 2000 + 3000 + 4000) + (5000 + 6000 + 7000 + 8000 + 6000 + 7000 + 8000)',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.simple,
@@ -515,12 +515,12 @@ void main() {
   testWidgets('Render test newlines_wrapMode_smart_1',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'1000 + 2000 + 3000 + 4000 + 5000 \Rightarrow 6000 + 7000 + 8000 \Rightarrow 6000 + 7000 + 8000',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.smart,
@@ -538,12 +538,12 @@ void main() {
   testWidgets('Render test newlines_wrapMode_smart_2',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'1000 + 2000 + 3000 + 4000 + 5000 = 6000 + 7000 + 8000',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.smart,
@@ -561,12 +561,12 @@ void main() {
   testWidgets('Render test newlines_wrapMode_smart_3',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'1000 + 2000 + 3000 + 4000 + 5000 + 6000 + 7000 + 8000',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.smart,
@@ -584,12 +584,12 @@ void main() {
   testWidgets('Render test newlines_wrapMode_smart_4',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'(1000 + 2000 + 3000 + 4000 + 5000) (6000 + 7000 + 8000)',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.smart,
@@ -607,12 +607,12 @@ void main() {
   testWidgets('Render test newlines_align_right_with_',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'1000 + 2000 + 3000 + 4000 \\ + 5000 + \\ 6000 + 7000 + 8000',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.none,
@@ -630,12 +630,12 @@ void main() {
   testWidgets('Render test newlines_align_left_simple',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'1000 + 2000 + 3000 + 4000 + 5000 + 6000 + 7000 + 8000',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.simple,
@@ -653,12 +653,12 @@ void main() {
   testWidgets('Render test newlines_align_center_simple',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'1000 + 2000 + 3000 + 4000 + 5000 + 6000 + 7000 + 8000',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.simple,
@@ -676,12 +676,12 @@ void main() {
   testWidgets('Render test newlines_align_right_simple',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'1000 + 2000 + 3000 + 4000 + 5000 + 6000 + 7000 + 8000',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.simple,
@@ -698,8 +698,8 @@ void main() {
 
   testWidgets('Render test custom_comma', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child:
           Latex(r"2 \comma 2", fontSize: 32.0, backgroundColor: Colors.white),
@@ -710,8 +710,8 @@ void main() {
 
   testWidgets('Render test custom_listcomma', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"2 \listcomma 2",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -722,8 +722,8 @@ void main() {
 
   testWidgets('Render test custom_minus', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child:
           Latex(r"\minus2 -2", fontSize: 32.0, backgroundColor: Colors.white),
@@ -734,8 +734,8 @@ void main() {
 
   testWidgets('Render test custom_placeholder', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\placeholder \dashplaceholder \redplaceholder",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -746,8 +746,8 @@ void main() {
 
   testWidgets('Render test custom_matrix', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\matrix{ 1 & 2 \\ 3 & 4}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -758,8 +758,8 @@ void main() {
 
   testWidgets('Render test custom_pmatrix', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\pmatrix{ 1 & 2 \\ 3 & 4}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -770,8 +770,8 @@ void main() {
 
   testWidgets('Render test custom_bmatrix1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bmatrix{ 1 & 2 \\ 3 & 4}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -782,8 +782,8 @@ void main() {
 
   testWidgets('Render test custom_Bmatrix2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\Bmatrix{ 1 & 2 \\ 3 & 4}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -794,8 +794,8 @@ void main() {
 
   testWidgets('Render test brackets_brackets_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"(\frac{1}{2}) \left( \frac{1}{2} \right) \left{ \frac{1}{2} \right} \{ \frac{1}{2} \}[ \frac{1}{2} ] \left[ \frac{1}{2} \right] \[ \frac{1}{2} \]",
@@ -808,8 +808,8 @@ void main() {
 
   testWidgets('Render test brackets_brackets_2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\llbracket 5 \rrbracket \llbracket \frac{1}{2} \rrbracket",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -820,8 +820,8 @@ void main() {
 
   testWidgets('Render test brackets_brackets_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\lparen 5 \rparen \[5\] \lbrack 5 \rbrack \{5\} \lbrace 5 \rbrace \lgroup 5 \rgroup",
@@ -834,8 +834,8 @@ void main() {
 
   testWidgets('Render test brackets_brackets_4', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"[a; b)", fontSize: 32.0, backgroundColor: Colors.white),
     ));
@@ -845,8 +845,8 @@ void main() {
 
   testWidgets('Render test brackets_cases', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"x = \cases{3 \ \text{für} \ 0 < x < 1 \\ 3 \\ 3 \\ 3}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -857,8 +857,8 @@ void main() {
 
   testWidgets('Render test brackets_norm_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"|1| \big| \Big| \bigg| \Bigg|",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -869,8 +869,8 @@ void main() {
 
   testWidgets('Render test brackets_norm_2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"|1| \big| \frac{1}{1} \big|",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -881,8 +881,8 @@ void main() {
 
   testWidgets('Render test brackets_norm_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"|1| \Big| \frac{1}{1} \Big|",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -893,8 +893,8 @@ void main() {
 
   testWidgets('Render test brackets_norm_4', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"|1| \bigg| \frac{1}{1} \bigg|",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -905,8 +905,8 @@ void main() {
 
   testWidgets('Render test brackets_norm_5', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"|1| \Bigg| \frac{1}{1} \Bigg|",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -917,8 +917,8 @@ void main() {
 
   testWidgets('Render test brackets_norm_6', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"|_a^b \big|_a^b \Big|_a^b \bigg|_a^b \Bigg|_a^b",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -929,8 +929,8 @@ void main() {
 
   testWidgets('Render test decoration_bar', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\bar{5}, \bar{55}, \bar{555}, \bar{55555}, \bar{a} \bar{ä} \bar{f}",
@@ -943,8 +943,8 @@ void main() {
 
   testWidgets('Render test decoration_dot', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\dot{5}, \dot{55}, \dot{555}, \dot{55555}, \dot{a} \dot{ä} \dot{f}",
@@ -957,8 +957,8 @@ void main() {
 
   testWidgets('Render test decoration_ddot', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\ddot{5}, \ddot{55}, \ddot{555}, \ddot{55555}, \ddot{a} \ddot{ä} \ddot{f}",
@@ -971,8 +971,8 @@ void main() {
 
   testWidgets('Render test decoration_dddot', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\dddot{5}, \dddot{55}, \dddot{555}, \dddot{55555}, \dddot{a} \dddot{ä} \dddot{f}",
@@ -985,8 +985,8 @@ void main() {
 
   testWidgets('Render test decoration_hat', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\hat{5}, \hat{55}, \hat{555}, \hat{55555}, \hat{a} \hat{ä} \hat{f}",
@@ -999,8 +999,8 @@ void main() {
 
   testWidgets('Render test decoration_overbrace', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\overbrace{5}, \overbrace{55}, \overbrace{555}, \overbrace{55555}, \overbrace{a} \overbrace{ä} \overbrace{f}",
@@ -1013,8 +1013,8 @@ void main() {
 
   testWidgets('Render test decoration_overline', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\overline{5}, \overline{55}, \overline{555}, \overline{55555}, \overline{a} \overline{ä} \overline{f}",
@@ -1028,8 +1028,8 @@ void main() {
   testWidgets('Render test decoration_overleftarrow',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\overleftarrow{5}, \overleftarrow{55}, \overleftarrow{555}, \overleftarrow{55555}, \overleftarrow{a} \overleftarrow{ä} \overleftarrow{f}",
@@ -1043,8 +1043,8 @@ void main() {
   testWidgets('Render test decoration_overleftrightarrow',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\overleftrightarrow{5}, \overleftrightarrow{55}, \overleftrightarrow{555}, \overleftrightarrow{55555}, \overleftrightarrow{a} \overleftrightarrow{ä} \overleftrightarrow{f}",
@@ -1060,8 +1060,8 @@ void main() {
   testWidgets('Render test decoration_overrightarrow',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\overrightarrow{5}, \overrightarrow{55}, \overrightarrow{555}, \overrightarrow{55555}, \overrightarrow{a} \overrightarrow{ä} \overrightarrow{f}",
@@ -1074,8 +1074,8 @@ void main() {
 
   testWidgets('Render test decoration_tilde', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\tilde{5}, \tilde{55}, \tilde{555}, \tilde{55555}, \tilde{a} \tilde{ä} \tilde{f}",
@@ -1088,8 +1088,8 @@ void main() {
 
   testWidgets('Render test decoration_vec', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\vec{5}, \vec{55}, \vec{555}, \vec{55555}, \vec{a} \vec{ä} \vec{f}",
@@ -1102,8 +1102,8 @@ void main() {
 
   testWidgets('Render test decoration_widehat', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\widehat{5}, \widehat{55}, \widehat{555}, \widehat{55555}, \widehat{aa} \widehat{ä} \widehat{f}",
@@ -1116,8 +1116,8 @@ void main() {
 
   testWidgets('Render test decoration_widetilde', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\widetilde{5}, \widetilde{55}, \widetilde{555}, \widetilde{55555}, \widetilde{a} \widetilde{ä} \widetilde{f}",
@@ -1130,8 +1130,8 @@ void main() {
 
   testWidgets('Render test decoration_underbrace', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\underbrace{5}, \underbrace{55}, \underbrace{555}, \underbrace{55555}, \underbrace{aaa} \underbrace{fff} \underbrace{\text{fff}} \underbrace{ggg}",
@@ -1144,8 +1144,8 @@ void main() {
 
   testWidgets('Render test decoration_underline', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\underline{5}, \underline{55}, \underline{555}, \underline{55555}, \underline{a} \underline{ä} \underline{fff} \underline{\text{fff}} \underline{ggg}",
@@ -1158,8 +1158,8 @@ void main() {
 
   testWidgets('Render test decoration_color', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\color{98CC70} \pi \sqrt{\color{red} 2} \pi \color{blue} \pi \color{apricot} 123.5 \color{mulberry} 123.5",
@@ -1172,8 +1172,8 @@ void main() {
 
   testWidgets('Render test fonts_italic_upper', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1184,8 +1184,8 @@ void main() {
 
   testWidgets('Render test fonts_italic_lower', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"abcdefghijklmnopqrstuvwxyzäöü",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1196,8 +1196,8 @@ void main() {
 
   testWidgets('Render test fonts_regular_upper', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\text{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1208,8 +1208,8 @@ void main() {
 
   testWidgets('Render test fonts_regular_lower', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\text{abcdefghijklmnopqrstuvwxyzäöü}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1220,8 +1220,8 @@ void main() {
 
   testWidgets('Render test fonts_regular_digits', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child:
           Latex(r"0123456789", fontSize: 32.0, backgroundColor: Colors.white),
@@ -1232,8 +1232,8 @@ void main() {
 
   testWidgets('Render test fonts_bold_upper', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bm{ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1244,8 +1244,8 @@ void main() {
 
   testWidgets('Render test fonts_bold_lower', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bm{abcdefghijklmnopqrstuvwxyzäöü}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1256,8 +1256,8 @@ void main() {
 
   testWidgets('Render test fonts_bold_digits', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bm{0123456789}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1268,8 +1268,8 @@ void main() {
 
   testWidgets('Render test fonts_mathbb_upper', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1280,8 +1280,8 @@ void main() {
 
   testWidgets('Render test fonts_mathbb_lower', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child:
           Latex(r"\mathbb{k}", fontSize: 32.0, backgroundColor: Colors.white),
@@ -1292,8 +1292,8 @@ void main() {
 
   testWidgets('Render test fonts_mathcal_upper', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1304,8 +1304,8 @@ void main() {
 
   testWidgets('Render test fonts_mathfrak_upper', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1316,8 +1316,8 @@ void main() {
 
   testWidgets('Render test fonts_mathfrak_lower', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathfrak{abcdefghijklmnopqrstuvwxyz}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1328,8 +1328,8 @@ void main() {
 
   testWidgets('Render test fonts_mathfrak_digits', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathfrak{0123456789}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1340,8 +1340,8 @@ void main() {
 
   testWidgets('Render test fonts_mathscr_upper', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1352,8 +1352,8 @@ void main() {
 
   testWidgets('Render test fonts_mathtt_upper', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathtt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1364,8 +1364,8 @@ void main() {
 
   testWidgets('Render test fonts_mathtt_lower', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathtt{abcdefghijklmnopqrstuvwxyz}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1376,8 +1376,8 @@ void main() {
 
   testWidgets('Render test fonts_mathtt_digits', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathtt{0123456789}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1388,8 +1388,8 @@ void main() {
 
   testWidgets('Render test fonts_text', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\text{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1400,8 +1400,8 @@ void main() {
 
   testWidgets('Render test fonts_textrm', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\textrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1412,8 +1412,8 @@ void main() {
 
   testWidgets('Render test fonts_mathrm', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1424,8 +1424,8 @@ void main() {
 
   testWidgets('Render test fonts_operatorname', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\operatorname{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1436,8 +1436,8 @@ void main() {
 
   testWidgets('Render test fonts_mathbf', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1448,8 +1448,8 @@ void main() {
 
   testWidgets('Render test fonts_boldsymbol', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\boldsymbol{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1460,8 +1460,8 @@ void main() {
 
   testWidgets('Render test fonts_bm', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1472,8 +1472,8 @@ void main() {
 
   testWidgets('Render test limProdSum_big', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\bigcap_n^a \bigcup_n^a \bigodot_n^a \bigoplus_n^a \bigotimes_n^a \bigsqcup_n^a \biguplus_n^a \bigvee_n^a \bigwedge_n^a",
@@ -1486,8 +1486,8 @@ void main() {
 
   testWidgets('Render test limProdSum_coprod', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \coprod b \coprod{i = 1} c \coprod^{n} d \coprod{i = 1}^{n} e \coprod^{n}_{i = 1} f",
@@ -1500,8 +1500,8 @@ void main() {
 
   testWidgets('Render test limProdSum_lim', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \lim b \lim_{a \to \infty} c \lim^{a \to \infty} d \lim_{a \to \infty}^{a \to \infty} e \lim^{a \to \infty}_{a \to \infty} f",
@@ -1514,8 +1514,8 @@ void main() {
 
   testWidgets('Render test limProdSum_prod', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \prod b \prod_{i = 1} c \prod^{n} d \prod_{i = 1}^{n} e \prod^{n}_{i = 1} f",
@@ -1528,8 +1528,8 @@ void main() {
 
   testWidgets('Render test limProdSum_sum', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \sum b \sum_{i = 1} c \sum^{n} d \sum_{i = 1}^{n} e \sum^{n}_{i = 1} f",
@@ -1542,8 +1542,8 @@ void main() {
 
   testWidgets('Render test integral_int', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\int_1^2 \iint_1^2 \iiint_1^2 \iiiint_1^2 \intop_1^2",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1554,8 +1554,8 @@ void main() {
 
   testWidgets('Render test integral_oint', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\oint_1^2 \oiint_1^2 \oiiint_1^2 \oiiiint_1^2",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1566,8 +1566,8 @@ void main() {
 
   testWidgets('Render test integral_smallint', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\smallint_1^2 \intinline_1^2",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1578,8 +1578,8 @@ void main() {
 
   testWidgets('Render test matrix_matrix_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\matrix{3} \pmatrix{3} \bmatrix{3} \Bmatrix{3} \matrix{3 \\ 3 } \pmatrix{3 \\ 3 } \bmatrix{3 \\ 3 } \Bmatrix{3 \\ 3 }",
@@ -1592,8 +1592,8 @@ void main() {
 
   testWidgets('Render test matrix_matrix_2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\matrix{3 \\ 3 \\ 3} \pmatrix{3 \\ 3 \\ 3} \bmatrix{3 \\ 3 \\ 3} \Bmatrix{3 \\ 3 \\ 3} \pmatrix{3 \\ 3 \\ 3 \\ 3} \bmatrix{3 \\ 3 \\ 3 \\ 3} \Bmatrix{3 \\ 3 \\ 3 \\ 3}",
@@ -1606,8 +1606,8 @@ void main() {
 
   testWidgets('Render test matrix_matrix_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\matrix{3 & 313 \\ 313 & 3} \pmatrix{3 & 313 \\ 313 & 3} \bmatrix{3 & 313 \\ 3 & 3} \Bmatrix{3 & 313 \\ 313 & 3}",
@@ -1621,8 +1621,8 @@ void main() {
   testWidgets('Render test matrix_matrix_vs_begin',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\matrix{3 & 3 \\ 3 & 3} \begin{matrix}3 & 3 \\ 3 & 3\end{matrix} \pmatrix{3 & 3 \\ 3 & 3} \begin{pmatrix}3 & 3 \\ 3 & 3\end{pmatrix} \bmatrix{3 & 3 \\ 3 & 3} \begin{bmatrix}3 & 3 \\ 3 & 3\end{bmatrix} \Bmatrix{3 & 3 \\ 3 & 3} \begin{Bmatrix}3 & 3 \\ 3 & 3\end{Bmatrix}",
@@ -1635,8 +1635,8 @@ void main() {
 
   testWidgets('Render test matrix_empty_entries', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\pmatrix{3 & 3 \\ 3 & 3} \pmatrix{3 & 3 \\  & 3} \pmatrix{ & 3 \\  & 3} \pmatrix{ 3 &  \\  & } \pmatrix{  &  \\  & } \pmatrix{ 3 \\ } \pmatrix{ 3 } \pmatrix{ }",
@@ -1649,8 +1649,8 @@ void main() {
 
   testWidgets('Render test binomFracSqrt_sqrt_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"xA \sqrt{2} \sqrt{a} \sqrt{ä} \sqrt{b} \sqrt{g} \sqrt{A} \sqrt{B}",
@@ -1663,8 +1663,8 @@ void main() {
 
   testWidgets('Render test binomFracSqrt_sqrt_2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\sqrt{\bar{x}} \sqrt{\bar{2}} \sqrt{\bar{A}} \sqrt{\bar{Wx}} \sqrt{\frac{x}{x}} \sqrt{\frac{2}{2}} \minus \sqrt{\minus\frac{2}{2}}",
@@ -1677,8 +1677,8 @@ void main() {
 
   testWidgets('Render test binomFracSqrt_sqrt_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\sqrt[4]{2} \sqrt[404]{2} \sqrt[40404]{2}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1689,8 +1689,8 @@ void main() {
 
   testWidgets('Render test binomFracSqrt_frac_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a\frac{2}{2}b\frac{\frac{2}{2}}{2}c\frac{\frac{\frac{2}{2}}{2}}{2} d \frac{2}{2}b\frac{2}{\frac{2}{2}} e \frac{2}{\frac{\frac{2}{2}}{2}}",
@@ -1703,8 +1703,8 @@ void main() {
 
   testWidgets('Render test binomFracSqrt_frac_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\sqrt{2} \sqrt{\frac{2}{2}} \sqrt{\frac{\frac{2}{2}}{2}} \sqrt{\frac{2}{\frac{\frac{2}{2}}{2}}}",
@@ -1717,8 +1717,8 @@ void main() {
 
   testWidgets('Render test binomFracSqrt_frac_4', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a\frac{ag}{ag} b \frac{A\sqrt{2}g}{A\sqrt{2}g} c",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1729,8 +1729,8 @@ void main() {
 
   testWidgets('Render test binomFracSqrt_binom', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \binom{ag}{ag} b",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1741,8 +1741,8 @@ void main() {
 
   testWidgets('Render test symbols_symbols_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child:
           Latex(r"+-*/=?!:><|`", fontSize: 32.0, backgroundColor: Colors.white),
@@ -1753,8 +1753,8 @@ void main() {
 
   testWidgets('Render test symbols_symbols_2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\# \& \And \$ \% \permil \_ \| \colon",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1765,8 +1765,8 @@ void main() {
 
   testWidgets('Render test symbols_symbols_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\div \pm \mp \times \And",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1777,8 +1777,8 @@ void main() {
 
   testWidgets('Render test symbols_primes_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"V' V'' V''' V'''''''' f' f'' f''' Y' W' T'",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1789,8 +1789,8 @@ void main() {
 
   testWidgets('Render test spaces_spaces_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"-\,-\ \backslash ,",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1801,8 +1801,8 @@ void main() {
 
   testWidgets('Render test spaces_spaces_2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"-\;-\ \backslash ;",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1813,8 +1813,8 @@ void main() {
 
   testWidgets('Render test spaces_spaces_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"-~-\ \sim", fontSize: 32.0, backgroundColor: Colors.white),
     ));
@@ -1824,8 +1824,8 @@ void main() {
 
   testWidgets('Render test spaces_spaces_4', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"-\ -\ \backslash(space)",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1836,8 +1836,8 @@ void main() {
 
   testWidgets('Render test spaces_spaces_5', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"-\nobreakspace-\ \backslash nobreakspace",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1848,8 +1848,8 @@ void main() {
 
   testWidgets('Render test spaces_spaces_6', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"-\quad-\ \backslash quad",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1860,8 +1860,8 @@ void main() {
 
   testWidgets('Render test spaces_spaces_7', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"-\qquad-\ \backslash qquad",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1872,8 +1872,8 @@ void main() {
 
   testWidgets('Render test greek_greek_upper', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\Alpha \Beta \Gamma \Delta \Epsilon \Zeta \Eta \Theta \Iota \Kappa \Lambda \Mu \Nu \Xi \Omicron \Pi \Rho \Sigma \Tau \Upsilon \Phi \Chi \Psi \Omega",
@@ -1886,8 +1886,8 @@ void main() {
 
   testWidgets('Render test greek_greek_lower', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\alpha \beta \gamma \delta \epsilon \zeta \eta \theta \iota \kappa \lambda \mu \nu \xi \omicron \pi \rho \sigma \tau \upsilon \phi \chi \psi \omega",
@@ -1900,8 +1900,8 @@ void main() {
 
   testWidgets('Render test greek_greek_var', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\varepsilon \vartheta \varkappa \varpi \varrho \varsigma \varphi",
@@ -1915,8 +1915,8 @@ void main() {
   testWidgets('Render test functions_min_max_sup_inf',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\min(4, 5) \  \max(4, 5) \  \sup \  \inf",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1928,8 +1928,8 @@ void main() {
   testWidgets('Render test functions_limsup_liminf',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\limsup(x) \  \liminf(x)",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1941,8 +1941,8 @@ void main() {
   testWidgets('Render test functions_exp_log_ln_lg',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\exp(x) \  \log(x) \  \ln(x) \  \lg(x)",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1953,8 +1953,8 @@ void main() {
 
   testWidgets('Render test functions_sin_cos_tan', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\sin(x) \  \cos(x) \  \tan(x)",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1965,8 +1965,8 @@ void main() {
 
   testWidgets('Render test functions_sec_csc_cot', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\sec(x) \  \csc(x) \  \cot(x)",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1978,8 +1978,8 @@ void main() {
   testWidgets('Render test functions_arcsin_arccos_arctan',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\arcsin(x) \  \arccos(x) \  \arctan(x)",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -1993,8 +1993,8 @@ void main() {
   testWidgets('Render test functions_arcsec_arccsc_arccot',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\arcsec(x) \  \arccsc(x) \  \arccot(x)",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2008,8 +2008,8 @@ void main() {
   testWidgets('Render test functions_sinh_cosh_tanh_coth',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\sinh(x) \  \cosh(x) \  \tanh(x) \  \coth(x)",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2022,8 +2022,8 @@ void main() {
 
   testWidgets('Render test functions_nCr_mod', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\nCr(x) \  \mod(x)",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2035,8 +2035,8 @@ void main() {
   testWidgets('Render test functions_arg_sgn_deg_dim',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\arg \  \sgn \  \deg \  \dim",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2048,8 +2048,8 @@ void main() {
   testWidgets('Render test functions_hom_ker_gcd_det_Pr',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\hom \  \ker \  \gcd \  \dim \  \Pr",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2060,8 +2060,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\AA \mathrm{\AA}",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2072,8 +2072,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\dots - \vdots - \varvdots - \cdot - \cdotp - \cdots \cdots",
@@ -2086,8 +2086,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\dots - \cdots - \dotsb - \dotsc - \dotsm - \dotsi-  \dotso",
@@ -2100,8 +2100,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_4', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\centerdot - \ldots - \ldotp - \ddots",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2112,8 +2112,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_5', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mathellipsis - \bullet - \therefore - \because",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2124,8 +2124,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_6', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a = b \coloneqq c \ne c \neq d \equiv e \doteq f",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2136,8 +2136,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_7', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \approx b \thickapprox c \approxeq c\cong d",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2148,8 +2148,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_8', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \sim b \thicksim c \simeq d",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2160,8 +2160,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_9', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \propto b \varpropto c",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2172,8 +2172,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_10', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \lt b \le c \leq d \ll e",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2184,8 +2184,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_11', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \gt b \ge c \geq d \gg e",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2196,8 +2196,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_12', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \nless b \nleqslant c \nleqq d \lneq e \lneqq f",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2208,8 +2208,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_13', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \ngtr b \ngeqslant c \ngeqq d \gneq e \gneqq f",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2220,8 +2220,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_14', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \preceq b \prec c \succeq d \succ e",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2232,8 +2232,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_15', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \leqq b \leqslant c \eqslantless d \lesssim e \lessapprox f \lessdot g",
@@ -2246,8 +2246,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_16', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \geqq b \geqslant c \eqslantgtr d \gtrsim e \gtrapprox f \gtrdot g",
@@ -2260,8 +2260,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_17', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \lessgtr b \lesseqgtr c \lesseqqgtr d \gtrless e \gtreqless f \gtreqqless g",
@@ -2274,8 +2274,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_18', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \ngeq b \nleq c",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2286,8 +2286,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_19', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \lll b \llless c \gggtr d \ggg e",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2298,8 +2298,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_20', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \preccurlyeq b \curlyeqprec c \precsim d \precapprox e",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2310,8 +2310,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_21', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \succcurlyeq b \curlyeqsucc c \succsim d \succapprox e",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2322,8 +2322,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_22', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \lvertneqq b \lnsim c \lnapprox d \nprec e \npreceq f \precnsim g \precnapprox h",
@@ -2336,8 +2336,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_23', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \gvertneqq b \gnsim c \gnapprox d \nsucc e \nsucceq f \succnsim g \succnapprox h",
@@ -2350,8 +2350,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_24', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"a \precneqq b \succneqq c",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2362,8 +2362,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_25', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \nsim b \nshortmid c \ncong d \backsim e \backsimeq f \eqsim g",
@@ -2376,8 +2376,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_26', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \eqcirc b \circeq c \triangleq d \doteqdot e \risingdotseq f \fallingdotseq g \Doteq i",
@@ -2390,8 +2390,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_27', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \lhd b \vartriangleleft c \rhd d \vartriangleright e \trianglelefteq f \trianglerighteq g",
@@ -2404,8 +2404,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_28', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"a \unlhd b \unrhd c \ntriangleleft d \ntrianglelefteq e \ntriangleright f \ntrianglerighteq g",
@@ -2418,8 +2418,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_29', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"A \subset B \nsubset C \Subset D \subseteq E \subsetneq F \varsubsetneq G",
@@ -2432,8 +2432,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_30', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"A \nsubseteq B \subseteqq C \subsetneqq D \varsubsetneqq E \nsubseteqq E",
@@ -2446,8 +2446,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_31', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"A \supset B \Supset C \supseteq D \supsetneq E \varsupsetneq F \nsupseteq G",
@@ -2460,8 +2460,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_32', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"A \supseteqq B \supsetneqq C \varsupsetneqq D \nsupseteqq E",
@@ -2474,8 +2474,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_33', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"A \sqsubset B \sqsupset C \sqsubseteq D \sqsupseteq E",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2486,8 +2486,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_34', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"A \ni B \owns C \forall D \exists E \in F \notin G",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2498,8 +2498,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_35', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\nexists \backepsilon",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2510,8 +2510,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_36', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\leftarrow \longleftarrow \Leftarrow \Longleftarrow",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2522,8 +2522,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_37', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\rightarrow \longrightarrow \Rightarrow \Longrightarrow",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2534,8 +2534,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_38', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\leftrightarrow \longleftrightarrow \Leftrightarrow \Longleftrightarrow",
@@ -2548,8 +2548,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_39', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\to \gets \mapsto \longmapsto",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2560,8 +2560,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_40', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\nearrow \searrow \swarrow \nwarrow",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2572,8 +2572,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_41', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\hookleftarrow \hookrightarrow",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2584,8 +2584,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_42', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\leftharpoonup \rightharpoonup \leftharpoondown \rightharpoondown \rightleftharpoons",
@@ -2598,8 +2598,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_43', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\uparrow \Uparrow \downarrow \Downarrow \updownarrow \Updownarrow",
@@ -2612,8 +2612,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_44', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\dashrightarrow \dashleftarrow \leftleftarrows \leftrightarrows \Lleftarrow \Rrightarrow \twoheadleftarrow",
@@ -2626,8 +2626,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_45', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\nleftarrow \nrightarrow \nLeftarrow \nRightarrow \nleftrightarrow \nLeftrightarrow",
@@ -2640,8 +2640,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_46', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\leftarrowtail \looparrowleft \leftrightharpoons",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2652,8 +2652,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_47', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\curvearrowleft \circlearrowleft \Lsh",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2664,8 +2664,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_48', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\upuparrows \upharpoonleft \downharpoonleft \multimap",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2676,8 +2676,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_49', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\leftrightsquigarrow \rightrightarrows \rightleftarrows",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2688,8 +2688,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_50', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\twoheadrightarrow \rightarrowtail \looparrowright \curvearrowright \circlearrowright",
@@ -2702,8 +2702,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_51', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\Rsh \downdownarrows \upharpoonright \downharpoonright \rightsquigarrow \leadsto \restriction",
@@ -2716,8 +2716,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_52', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\aleph \wp \Re \Im",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2728,8 +2728,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_53', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\clubsuit \diamondsuit \heartsuit \spadesuit \diamond \star",
@@ -2742,8 +2742,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_54', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\natural \sharp \hbar \hslash",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2754,8 +2754,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_55', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\nabla \partial \flat\ell",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2766,8 +2766,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_56', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\dag \dagger \ddag \ddagger",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2778,8 +2778,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_57', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\rmoustache \lmoustache \wr \amalg",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2790,8 +2790,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_58', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\imath \jmath \maltese",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2802,8 +2802,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_59', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\pounds \mathsterling \yen \euro",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2814,8 +2814,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_60', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\S \P", fontSize: 32.0, backgroundColor: Colors.white),
     ));
@@ -2825,8 +2825,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_61', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\perp \vdash \nvdash \dashv \top \bot \vDash \models \nvDash",
@@ -2839,8 +2839,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_62', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\Vdash \nVdash \Vvdash \nVDash",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2851,8 +2851,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_63', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\uplus \sqcap \ast \sqcup",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2863,8 +2863,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_64', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mid \nmid \parallel \nparallel \nshortparallel",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2875,8 +2875,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_65', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\lvert \lVert \rvert \rVert \vert \Vert",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2887,8 +2887,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_66', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\shortmid \shortparallel \lfloor \rfloor \lceil \rceil",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2899,8 +2899,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_67', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\ulcorner \urcorner \llcorner \lrcorner",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2911,8 +2911,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_68', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\asymp \bowtie \Join \smile \frown \smallsmile \smallfrown",
@@ -2925,8 +2925,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_69', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\circ \bigcirc \angle \triangle \vartriangle",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2937,8 +2937,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_70', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\triangledown \triangleleft \triangleright \bigtriangleup \bigtriangledown",
@@ -2951,8 +2951,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_71', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\blacktriangle \blacktriangledown \blacktriangleleft \blacktriangleright \blacksquare \lozenge \blacklozenge",
@@ -2965,8 +2965,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_72', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bigstar \square \Box \Diamond",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -2977,8 +2977,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_73', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\infty \prime \backprime \acute \grave \breve \check \degree \mathring",
@@ -2991,8 +2991,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_74', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\neg \lnot \empty \emptyset \varnothing",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3003,8 +3003,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_75', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\cap \cup \Cap \Cup \doublecap \doublecup",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3015,8 +3015,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_76', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\setminus \smallsetminus \backslash \not \land \lor",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3027,8 +3027,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_77', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\wedge \vee \surd \langle \rangle \varangle",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3039,8 +3039,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_78', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\oplus \ominus \odot \otimes \oslash",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3051,8 +3051,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_79', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\circleddash \circledast \circledcirc \boxminus \boxplus \boxdot \boxtimes",
@@ -3065,8 +3065,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_80', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\circledS \circledR \measuredangle \sphericalangle",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3077,8 +3077,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_81', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mho \Finv \Game \complement \eth \diagup \diagdown",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3089,8 +3089,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_82', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\checkmark \beth \daleth \gimel \digamma",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3101,8 +3101,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_83', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bumpeq \Bumpeq \between \pitchfork",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3113,8 +3113,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_84', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\dotplus \divideontimes \ltimes \rtimes \leftthreetimes \rightthreetimes",
@@ -3127,8 +3127,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_85', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\barwedge \veebar \doublebarwedge \curlywedge \curlyvee \intercal",
@@ -3141,8 +3141,8 @@ void main() {
 
   testWidgets('Render test latexCommands_cmd_86', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\N \Z \Q \R \C \H",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3154,12 +3154,12 @@ void main() {
   testWidgets('Render test errors_error_invalidSyntax',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'\e + 2',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.none,
@@ -3177,12 +3177,12 @@ void main() {
   testWidgets('Render test errors_error_redPlaceholders',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'\e + 2',
           fontSize: 32.0,
           wrapMode: LatexWrapMode.none,
@@ -3199,8 +3199,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\# \$ \% \& \AA",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3211,8 +3211,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_2', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\Delta \Gamma \Im \Lambda \Leftarrow",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3223,8 +3223,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_3', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\Leftrightarrow \Longleftarrow \Longleftrightarrow \Longrightarrow \Omega",
@@ -3237,8 +3237,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_4', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\perp \Phi \Pi \Psi \Re",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3249,8 +3249,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_5', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\Rightarrow \S \Sigma \Theta \Upsilon",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3261,8 +3261,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_6', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\varangle \Vdash \Xi \\ \aleph",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3273,8 +3273,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_7', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\alpha \angle \approx \asymp",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3285,8 +3285,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_8', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\backslash \because \beta \beth",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3297,8 +3297,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_9', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bigcap \bigcirc \bigcup \bigodot \bigoplus",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3309,8 +3309,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_10', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bigotimes \biguplus \bigvee \bigwedge",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3321,8 +3321,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_11', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\bot \bowtie \breve \bullet \cap",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3333,8 +3333,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_12', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\cdot \cdots \check \chi \circ",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3345,8 +3345,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_13', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\circlearrowleft \circlearrowright \circledast",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3357,8 +3357,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_14', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child:
           Latex(r"\complement", fontSize: 32.0, backgroundColor: Colors.white),
@@ -3369,8 +3369,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_15', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\cong \coprod \cup \curlyvee \curlywedge",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3381,8 +3381,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_16', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\curvearrowleft \curvearrowright \dagger \dashv",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3393,8 +3393,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_17', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\ddot \ddots \delta \diamond \div",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3405,8 +3405,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_18', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\dot \doteq \dots \downarrow \ell",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3417,8 +3417,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_19', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\emptyset", fontSize: 32.0, backgroundColor: Colors.white),
     ));
@@ -3428,8 +3428,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_20', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\epsilon \equiv \eta",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3440,8 +3440,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_21', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\exists \fallingdotseq \forall",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3452,8 +3452,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_22', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\frown", fontSize: 32.0, backgroundColor: Colors.white),
     ));
@@ -3463,8 +3463,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_23', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\gamma \geq \geqq \geqslant \gg",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3475,8 +3475,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_24', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\ggg \gtrless \gtrsim \hat \hbar",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3487,8 +3487,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_25', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\hookleftarrow \hookrightarrow \imath \in",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3499,8 +3499,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_26', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\infty \int \iota \jmath \kappa",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3511,8 +3511,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_27', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\lambda \langle \lceil \ldots \leadsto",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3523,8 +3523,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_28', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\leftarrow \leftleftarrows \leftrightarrow \leftrightarrows \leftrightharpoons",
@@ -3537,8 +3537,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_29', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\leq \leqq \leqslant \lessdot \lessgtr",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3549,8 +3549,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_30', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\lesssim \lfloor \ll \llcorner",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3561,8 +3561,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_31', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\lll \longleftarrow \longleftrightarrow \longmapsto",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3573,8 +3573,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_32', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\longrightarrow \lrcorner \ltimes \mapsto",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3585,8 +3585,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_33', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\mho \models \mp \mu ",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3597,8 +3597,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_34', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\multimap \nVdash \nabla \nearrow",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3609,8 +3609,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_35', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\neg \neq \nexists \ni",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3621,8 +3621,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_36', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\nmid \not \notin \nprec \npreceq",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3633,8 +3633,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_37', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\nsim \nsubseteq \nsucc \nsucceq \nsupseteq",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3645,8 +3645,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_38', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\nu \nvdash \nwarrow \odot ",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3657,8 +3657,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_39', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\oint \omega \ominus",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3669,8 +3669,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_40', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\oplus \oslash \otimes",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3681,8 +3681,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_41', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\parallel \partial \perp",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3693,8 +3693,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_42', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\phi \pi \pitchfork \pm \prec",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3705,8 +3705,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_43', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\preccurlyeq \preceq \precsim \prime \prod",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3717,8 +3717,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_44', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\propto \psi \qquad \quad \rangle",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3729,8 +3729,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_45', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\rceil \rfloor \rho \rightarrow \rightleftarrows",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3741,8 +3741,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_46', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(
           r"\rightleftharpoons \rightrightarrows \rightsquigarrow \risingdotseq",
@@ -3755,8 +3755,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_47', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\rtimes \searrow \sigma \sim \simeq",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3767,8 +3767,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_48', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\smile \sqcap \sqcup \sqrt \sqsubset",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3779,8 +3779,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_49', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\sqsubseteq \sqsupset \sqsupseteq \square",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3791,8 +3791,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_50', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\star \subset \subseteq \subsetneq \succ",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3803,8 +3803,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_51', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\succcurlyeq \succeq \succsim \sum \supset",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3815,8 +3815,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_52', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\supseteq \supseteqq \supsetneq \supsetneqq \swarrow",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3827,8 +3827,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_53', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\tau \therefore \theta",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3839,8 +3839,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_54', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\times \top \triangle \triangleleft \triangleq",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3851,8 +3851,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_55', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\triangleright \unlhd",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3863,8 +3863,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_56', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\unrhd \uparrow \uplus \vDash \varepsilon",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3875,8 +3875,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_57', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\varnothing \varphi \varpi",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3887,8 +3887,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_58', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\varrho \varsigma \varsubsetneqq \vartheta \vdash",
           fontSize: 32.0, backgroundColor: Colors.white),
@@ -3899,8 +3899,8 @@ void main() {
 
   testWidgets('Render test mathpix_mathpix_59', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"\vdots \vee \wedge \wp \xi \zeta \{ \| \}",
           fontSize: 32.0, backgroundColor: Colors.white),

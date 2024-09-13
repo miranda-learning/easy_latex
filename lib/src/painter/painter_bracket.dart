@@ -70,21 +70,21 @@ class BracketPainter extends LPainter {
   static Path getCurlyBracketPath(double w, double h, double fontSize) {
     double reducedHeightHalf = (h - fontSize * 0.1) / 2;
     double strokeWidth = max(w * 0.16, fontSize * 0.07);
-    double x_center = w * 0.6;
+    double xCenter = w * 0.6;
 
     Path path = Path();
 
     path.moveTo(0, strokeWidth / 4);
     path.cubicTo(
-        x_center - strokeWidth,
+        xCenter - strokeWidth,
         strokeWidth / 4,
-        x_center - strokeWidth,
+        xCenter - strokeWidth,
         reducedHeightHalf * 0.25,
-        x_center - strokeWidth,
+        xCenter - strokeWidth,
         reducedHeightHalf * 0.25);
-    path.lineTo(x_center - strokeWidth, reducedHeightHalf * 0.75);
+    path.lineTo(xCenter - strokeWidth, reducedHeightHalf * 0.75);
     path.cubicTo(
-      x_center - strokeWidth,
+      xCenter - strokeWidth,
       reducedHeightHalf,
       w,
       reducedHeightHalf,
@@ -94,17 +94,17 @@ class BracketPainter extends LPainter {
 
     path.lineTo(w, reducedHeightHalf - strokeWidth / 2);
     path.cubicTo(
-      x_center,
+      xCenter,
       reducedHeightHalf - strokeWidth / 2,
-      x_center,
+      xCenter,
       reducedHeightHalf * 0.75,
-      x_center,
+      xCenter,
       reducedHeightHalf * 0.75,
     );
-    path.lineTo(x_center, reducedHeightHalf * 0.25);
+    path.lineTo(xCenter, reducedHeightHalf * 0.25);
 
     path.cubicTo(
-      x_center,
+      xCenter,
       0,
       strokeWidth,
       0,
@@ -113,16 +113,16 @@ class BracketPainter extends LPainter {
     );
 
     path.cubicTo(
-      x_center,
+      xCenter,
       0,
-      x_center,
+      xCenter,
       -reducedHeightHalf * 0.25,
-      x_center,
+      xCenter,
       -reducedHeightHalf * 0.25,
     );
-    path.lineTo(x_center, -reducedHeightHalf * 0.75);
+    path.lineTo(xCenter, -reducedHeightHalf * 0.75);
     path.cubicTo(
-      x_center,
+      xCenter,
       -reducedHeightHalf + strokeWidth / 2,
       w,
       -reducedHeightHalf + strokeWidth / 2,
@@ -132,16 +132,16 @@ class BracketPainter extends LPainter {
 
     path.lineTo(w, -reducedHeightHalf);
     path.cubicTo(
-      x_center - strokeWidth,
+      xCenter - strokeWidth,
       -reducedHeightHalf,
-      x_center - strokeWidth,
+      xCenter - strokeWidth,
       -reducedHeightHalf * 0.75,
-      x_center - strokeWidth,
+      xCenter - strokeWidth,
       -reducedHeightHalf * 0.75,
     );
-    path.lineTo(x_center - strokeWidth, -reducedHeightHalf * 0.25);
+    path.lineTo(xCenter - strokeWidth, -reducedHeightHalf * 0.25);
     path.cubicTo(
-      x_center - strokeWidth,
+      xCenter - strokeWidth,
       -strokeWidth / 4,
       0,
       -strokeWidth / 4,
@@ -194,13 +194,13 @@ class BracketPainter extends LPainter {
   // round brackets
   static Path getRoundBracketPath(double w, double h, double fontSize) {
     double reducedHeightHalf = (h - fontSize * 0.1) / 2;
-    double strokeWidth_center = max(w * 0.2, fontSize * 0.075);
-    double strokeWidth_tip = strokeWidth_center * 0.6;
+    double strokeWidthCenter = max(w * 0.2, fontSize * 0.075);
+    double strokeWidthTip = strokeWidthCenter * 0.6;
     double curvatureHeight = min(w * 4, reducedHeightHalf * 1.1);
 
     Path path = Path();
 
-    path.moveTo(w - strokeWidth_tip, reducedHeightHalf);
+    path.moveTo(w - strokeWidthTip, reducedHeightHalf);
 
     path.cubicTo(
         0,
@@ -217,28 +217,28 @@ class BracketPainter extends LPainter {
         -reducedHeightHalf + curvatureHeight / 3 * 2,
         0,
         -reducedHeightHalf + curvatureHeight / 3,
-        w - strokeWidth_tip,
+        w - strokeWidthTip,
         -reducedHeightHalf);
 
-    path.lineTo(w, -reducedHeightHalf + strokeWidth_tip * 0.4);
+    path.lineTo(w, -reducedHeightHalf + strokeWidthTip * 0.4);
 
     path.cubicTo(
-        strokeWidth_center,
+        strokeWidthCenter,
         -reducedHeightHalf + curvatureHeight / 3,
-        strokeWidth_center,
+        strokeWidthCenter,
         -reducedHeightHalf + curvatureHeight / 3 * 2,
-        strokeWidth_center,
+        strokeWidthCenter,
         -reducedHeightHalf + curvatureHeight);
 
-    path.lineTo(strokeWidth_center, reducedHeightHalf - curvatureHeight);
+    path.lineTo(strokeWidthCenter, reducedHeightHalf - curvatureHeight);
 
     path.cubicTo(
-        strokeWidth_center,
+        strokeWidthCenter,
         reducedHeightHalf - curvatureHeight / 3 * 2,
-        strokeWidth_center,
+        strokeWidthCenter,
         reducedHeightHalf - curvatureHeight / 3,
         w,
-        reducedHeightHalf - strokeWidth_tip * 0.4);
+        reducedHeightHalf - strokeWidthTip * 0.4);
 
     path.close();
 

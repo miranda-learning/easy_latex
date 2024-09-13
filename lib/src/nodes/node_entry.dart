@@ -92,9 +92,12 @@ class EntryNode extends LatexRenderNode {
   bool get isMultiline => lines.twoOrMore || lines.first.isMultiline;
 
   @override
-  bool operator ==(Object value) {
-    return value is EntryNode && value.sourceText == sourceText;
+  bool operator ==(Object other) {
+    return other is EntryNode && other.sourceText == sourceText;
   }
+
+  @override
+  int get hashCode => sourceText.hashCode;
 
   @override
   String toString() => toStringWithIndent('');

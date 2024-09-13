@@ -77,10 +77,10 @@ class PlaceholderNode extends LatexRenderNode {
       double horizontalPadding = size.width * 0.1 + strokeWidth / 2;
       double verticalPadding = size.width * 0.35 + strokeWidth / 2;
 
-      double l_x = start + horizontalPadding;
-      double r_x = start + size.width - horizontalPadding;
-      double t_y = top + verticalPadding;
-      double b_y = top + size.height - verticalPadding;
+      double lX = start + horizontalPadding;
+      double rX = start + size.width - horizontalPadding;
+      double tY = top + verticalPadding;
+      double bY = top + size.height - verticalPadding;
 
       Paint linePaint = Paint()
         ..color = renderContext!.color
@@ -88,23 +88,23 @@ class PlaceholderNode extends LatexRenderNode {
         ..strokeWidth = strokeWidth;
 
       canvas.drawDashedLine(
-          Offset(l_x - strokeWidth / 2, t_y),
-          Offset(r_x - strokeWidth / 2, t_y),
+          Offset(lX - strokeWidth / 2, tY),
+          Offset(rX - strokeWidth / 2, tY),
           linePaint,
           [strokeWidth, strokeWidth]);
       canvas.drawDashedLine(
-          Offset(r_x, t_y - strokeWidth / 2),
-          Offset(r_x, b_y - strokeWidth / 2),
+          Offset(rX, tY - strokeWidth / 2),
+          Offset(rX, bY - strokeWidth / 2),
           linePaint,
           [strokeWidth, strokeWidth]);
       canvas.drawDashedLine(
-          Offset(r_x + strokeWidth / 2, b_y),
-          Offset(l_x + strokeWidth / 2, b_y),
+          Offset(rX + strokeWidth / 2, bY),
+          Offset(lX + strokeWidth / 2, bY),
           linePaint,
           [strokeWidth, strokeWidth]);
       canvas.drawDashedLine(
-          Offset(l_x, b_y + strokeWidth / 2),
-          Offset(l_x, t_y + strokeWidth / 2),
+          Offset(lX, bY + strokeWidth / 2),
+          Offset(lX, tY + strokeWidth / 2),
           linePaint,
           [strokeWidth, strokeWidth]);
     }

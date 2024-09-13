@@ -67,11 +67,11 @@ class IntegralPainter extends LPainter {
     }
 
     if (type.isContour) {
-      double r_w = w * 0.6 + (numIntegrals - 1) * fontSize * 0.25;
-      double r_h = w * 0.6;
+      double rW = w * 0.6 + (numIntegrals - 1) * fontSize * 0.25;
+      double rH = w * 0.6;
       canvas.drawOval(
-          Rect.fromLTWH(start + size.width / 2 - r_w,
-              baseline - baselineOffset + h / 2 - r_h, 2 * r_w, 2 * r_h),
+          Rect.fromLTWH(start + size.width / 2 - rW,
+              baseline - baselineOffset + h / 2 - rH, 2 * rW, 2 * rH),
           Paint()
             ..color = renderContext.color
             ..strokeWidth = fontSize * 0.05

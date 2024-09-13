@@ -189,7 +189,8 @@ class LText extends StatelessWidget {
 
         case _SpanType.italic:
           spans.add(TextSpan(
-              text: item.text, style: TextStyle(fontStyle: FontStyle.italic)));
+              text: item.text,
+              style: const TextStyle(fontStyle: FontStyle.italic)));
           break;
 
         case _SpanType.code:

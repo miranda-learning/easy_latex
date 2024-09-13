@@ -43,19 +43,22 @@ class MatrixNode extends LatexRenderNode {
 
     for (var child in children) {
       if (child is NewColumnNode) {
-        if (rows.last.last.children.isEmpty)
+        if (rows.last.last.children.isEmpty) {
           rows.last.last.children.add(TextNode(''));
+        }
         rows.last.add(GroupNode([], BracketType.none));
       } else if (child is NewlineNode) {
-        if (rows.last.last.children.isEmpty)
+        if (rows.last.last.children.isEmpty) {
           rows.last.last.children.add(TextNode(''));
+        }
         rows.add([GroupNode([], BracketType.none)]);
       } else {
         rows.last.last.children.add(child);
       }
     }
-    if (rows.last.last.children.isEmpty)
+    if (rows.last.last.children.isEmpty) {
       rows.last.last.children.add(TextNode(''));
+    }
 
     _rows = rows;
   }

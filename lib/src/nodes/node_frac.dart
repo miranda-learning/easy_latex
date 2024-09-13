@@ -94,10 +94,10 @@ class FracNode extends LatexRenderNode {
                 : denominator.baselineOffset));
 
     // draw fraction line
-    double y_line = baseline - _lineOffset - _lineWidth * 0.25;
+    double yLine = baseline - _lineOffset - _lineWidth * 0.25;
     canvas.drawLine(
-      Offset(start + _lineWidth / 2, y_line),
-      Offset(start + size.width - _lineWidth / 2, y_line),
+      Offset(start + _lineWidth / 2, yLine),
+      Offset(start + size.width - _lineWidth / 2, yLine),
       _linePaint,
     );
   }

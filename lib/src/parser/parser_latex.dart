@@ -77,15 +77,17 @@ class LatexParser {
     List<dynamic> tmp = [];
     for (var node in nodesAndTokens) {
       if (node is NewlineNode) {
-        if (tmp.isNotEmpty)
+        if (tmp.isNotEmpty) {
           lines.add(_groupNodes(tmp, BracketType.none)); // group terms
+        }
         tmp.clear();
       } else {
         tmp.add(node);
       }
     }
-    if (tmp.isNotEmpty || lines.isEmpty)
+    if (tmp.isNotEmpty || lines.isEmpty) {
       lines.add(_groupNodes(tmp, BracketType.none)); // group terms
+    }
 
     return EntryNode(lines: lines, sourceText: expr);
   }
@@ -178,8 +180,9 @@ class LatexParser {
         if (SyntaxParser.isLatexCommand(subStr)) {
           nodesAndTokens.add(SyntaxParser.parseLatexCommand(subStr));
         } else {
-          if (_errorHandlingMode == ParsingMode.strict)
+          if (_errorHandlingMode == ParsingMode.strict) {
             throw (UnknownCommandException('\\$subStr not supported'));
+          }
           nodesAndTokens.add(ErrorNode(
               errorVisualization:
                   ErrorVisualization.fromParsing(_errorHandlingMode),
@@ -243,13 +246,13 @@ class LatexParser {
   /// Groups all bracket terms.
   void _groupBracketTerms(List<dynamic> nodesAndTokens) {
     while (true) {
-      int startIndex_curlyBracket = -1;
-      int startIndex_squareBracket = -1;
+      int startIndexCurlyBracket = -1;
+      int startIndexSquareBracket = -1;
       bool showGroupCurlyBrackets = false;
-      int startIndex_roundBracket = -1;
-      int endIndex_curlyBracket = -1;
-      int endIndex_squareBracket = -1;
-      int endIndex_roundBracket = -1;
+      int startIndexRoundBracket = -1;
+      int endIndexCurlyBracket = -1;
+      int endIndexSquareBracket = -1;
+      int endIndexRoundBracket = -1;
 
       loop:
       for (var i = 0; i < nodesAndTokens.length; i++) {
@@ -258,34 +261,34 @@ class LatexParser {
 
         switch (token.type) {
           case BracketTokenType.leftCurly:
-            startIndex_curlyBracket = i;
+            startIndexCurlyBracket = i;
             showGroupCurlyBrackets = token.showGroupCurlyBrackets;
             break;
 
           case BracketTokenType.rightCurly:
-            endIndex_curlyBracket = i;
-            if (startIndex_curlyBracket >= 0) {
+            endIndexCurlyBracket = i;
+            if (startIndexCurlyBracket >= 0) {
               showGroupCurlyBrackets &= token.showGroupCurlyBrackets;
               break loop;
             }
             break;
 
           case BracketTokenType.leftSquare:
-            startIndex_squareBracket = i;
+            startIndexSquareBracket = i;
             break;
 
           case BracketTokenType.rightSquare:
-            endIndex_squareBracket = i;
-            if (startIndex_squareBracket >= 0) break loop;
+            endIndexSquareBracket = i;
+            if (startIndexSquareBracket >= 0) break loop;
             break;
 
           case BracketTokenType.leftRound:
-            startIndex_roundBracket = i;
+            startIndexRoundBracket = i;
             break;
 
           case BracketTokenType.rightRound:
-            endIndex_roundBracket = i;
-            if (startIndex_roundBracket >= 0) break loop;
+            endIndexRoundBracket = i;
+            if (startIndexRoundBracket >= 0) break loop;
             break;
 
           default:
@@ -294,37 +297,37 @@ class LatexParser {
       }
 
       // found curly bracket term and condense it
-      if (startIndex_curlyBracket >= 0 &&
-          endIndex_curlyBracket >= startIndex_curlyBracket) {
-        nodesAndTokens[startIndex_curlyBracket] = _groupNodes(
+      if (startIndexCurlyBracket >= 0 &&
+          endIndexCurlyBracket >= startIndexCurlyBracket) {
+        nodesAndTokens[startIndexCurlyBracket] = _groupNodes(
           nodesAndTokens.sublist(
-              startIndex_curlyBracket + 1, endIndex_curlyBracket),
+              startIndexCurlyBracket + 1, endIndexCurlyBracket),
           showGroupCurlyBrackets ? BracketType.curly : BracketType.none,
         );
         nodesAndTokens.removeRange(
-            startIndex_curlyBracket + 1, endIndex_curlyBracket + 1);
+            startIndexCurlyBracket + 1, endIndexCurlyBracket + 1);
 
         // found square bracket term and condense it
-      } else if (startIndex_squareBracket >= 0 &&
-          endIndex_squareBracket >= startIndex_squareBracket) {
-        nodesAndTokens[startIndex_squareBracket] = _groupNodes(
+      } else if (startIndexSquareBracket >= 0 &&
+          endIndexSquareBracket >= startIndexSquareBracket) {
+        nodesAndTokens[startIndexSquareBracket] = _groupNodes(
           nodesAndTokens.sublist(
-              startIndex_squareBracket + 1, endIndex_squareBracket),
+              startIndexSquareBracket + 1, endIndexSquareBracket),
           BracketType.square,
         );
         nodesAndTokens.removeRange(
-            startIndex_squareBracket + 1, endIndex_squareBracket + 1);
+            startIndexSquareBracket + 1, endIndexSquareBracket + 1);
 
         // found round bracket term and condense it
-      } else if (startIndex_roundBracket >= 0 &&
-          endIndex_roundBracket >= startIndex_roundBracket) {
-        nodesAndTokens[startIndex_roundBracket] = _groupNodes(
+      } else if (startIndexRoundBracket >= 0 &&
+          endIndexRoundBracket >= startIndexRoundBracket) {
+        nodesAndTokens[startIndexRoundBracket] = _groupNodes(
           nodesAndTokens.sublist(
-              startIndex_roundBracket + 1, endIndex_roundBracket),
+              startIndexRoundBracket + 1, endIndexRoundBracket),
           BracketType.round,
         );
         nodesAndTokens.removeRange(
-            startIndex_roundBracket + 1, endIndex_roundBracket + 1);
+            startIndexRoundBracket + 1, endIndexRoundBracket + 1);
 
         // found no bracket terms -> leave while-loop
       } else {
@@ -343,8 +346,9 @@ class LatexParser {
     // sanity check
     List<LatexRenderNode> nodes = [];
     for (var node in nodesAndTokens) {
-      if (node is! LatexRenderNode)
+      if (node is! LatexRenderNode) {
         throw GroupingException('${node.toString()} is not a node.');
+      }
       nodes.add(node);
     }
 
@@ -426,7 +430,7 @@ class LatexParser {
           break;
 
         case FunctionType.cases:
-          _parseFunction_cases(nodesAndTokens, i, token.cmd);
+          _parseFunctionCases(nodesAndTokens, i, token.cmd);
           break;
 
         case FunctionType.frac:
@@ -435,11 +439,11 @@ class LatexParser {
           break;
 
         case FunctionType.limProdSum:
-          _parseFunction_LimProdSum(nodesAndTokens, i, token.limProdSumType!);
+          _parseFunctionLimProdSum(nodesAndTokens, i, token.limProdSumType!);
           break;
 
         case FunctionType.matrix:
-          _parseFunction_matrix(
+          _parseFunctionMatrix(
               nodesAndTokens, i, token.cmd, token.bracketType!);
           break;
 
@@ -449,18 +453,18 @@ class LatexParser {
 
         case FunctionType.subscript:
           bool shiftIndexToLeft =
-              _parseFunction_subSuper(nodesAndTokens, i, false);
+              _parseFunctionSubSuper(nodesAndTokens, i, false);
           if (shiftIndexToLeft) i--;
           break;
 
         case FunctionType.superscript:
           bool shiftIndexToLeft =
-              _parseFunction_subSuper(nodesAndTokens, i, true);
+              _parseFunctionSubSuper(nodesAndTokens, i, true);
           if (shiftIndexToLeft) i--;
           break;
 
         case FunctionType.sqrt:
-          _parseFunction2_firstOptional(nodesAndTokens, i, '\\sqrt',
+          _parseFunction2FirstOptional(nodesAndTokens, i, '\\sqrt',
               (n, optional) => SqrtNode(n, exponent: optional));
           break;
       }
@@ -507,7 +511,7 @@ class LatexParser {
     nodesAndTokens.removeRange(index + 1, index + 3);
   }
 
-  void _parseFunction2_firstOptional(
+  void _parseFunction2FirstOptional(
       List<dynamic> nodesAndTokens,
       int index,
       String name,
@@ -536,7 +540,7 @@ class LatexParser {
     }
   }
 
-  void _parseFunction_cases(
+  void _parseFunctionCases(
       List<dynamic> nodesAndTokens, int index, String name) {
     if (index + 1 <= nodesAndTokens.lastIndex &&
         nodesAndTokens[index + 1] is GroupNode) {
@@ -548,7 +552,7 @@ class LatexParser {
     nodesAndTokens.removeRange(index + 1, index + 2);
   }
 
-  void _parseFunction_matrix(List<dynamic> nodesAndTokens, int index,
+  void _parseFunctionMatrix(List<dynamic> nodesAndTokens, int index,
       String name, BracketType bracketType) {
     if (index + 1 <= nodesAndTokens.lastIndex &&
         nodesAndTokens[index + 1] is GroupNode) {
@@ -561,7 +565,7 @@ class LatexParser {
     nodesAndTokens.removeRange(index + 1, index + 2);
   }
 
-  void _parseFunction_LimProdSum(
+  void _parseFunctionLimProdSum(
       List<dynamic> nodesAndTokens, int index, LimProdSumType type) {
     dynamic token1 =
         index + 1 < nodesAndTokens.length ? nodesAndTokens[index + 1] : null;
@@ -606,7 +610,7 @@ class LatexParser {
     }
   }
 
-  bool _parseFunction_subSuper(
+  bool _parseFunctionSubSuper(
       List<dynamic> nodesAndTokens, int index, bool firstIsSuper) {
     dynamic token1 =
         index + 1 < nodesAndTokens.length ? nodesAndTokens[index + 1] : null;

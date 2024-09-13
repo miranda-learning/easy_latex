@@ -113,9 +113,9 @@ class SyntaxParser {
 
     // Norm
     'big|': () => NormNode(NormSize.big),
-    'Big|': () => NormNode(NormSize.Big),
+    'Big|': () => NormNode(NormSize.uBig),
     'bigg|': () => NormNode(NormSize.bigg),
-    'Bigg|': () => NormNode(NormSize.Bigg),
+    'Bigg|': () => NormNode(NormSize.uBigg),
 
     // Top decoration
     'bar': () => FunctionalToken(FunctionType.topDecoration,

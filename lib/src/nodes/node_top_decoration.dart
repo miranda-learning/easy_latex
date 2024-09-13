@@ -91,8 +91,9 @@ class TopDecorationNode extends LatexRenderNode {
   @override
   void paint(Canvas canvas, double start, double baseline) {
     double offset = 0;
-    if (child.size.width < size.width)
+    if (child.size.width < size.width) {
       offset += (size.width - child.size.width) / 2;
+    }
     child.paint(canvas, start + offset, baseline);
 
     if (decoration.decorationChar != null) {

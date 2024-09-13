@@ -24,8 +24,9 @@ class LineBreaksHandler {
     while (i < lines.length) {
       LatexRenderNode node = lines[i];
       i++;
-      if (node is! GroupNode || node.children.length <= 1)
+      if (node is! GroupNode || node.children.length <= 1) {
         continue; // TODO bracket terms are currently considered as single term, that cannot be split.
+      }
 
       node.performLayout(renderContext);
       if (node.size.width < maxWidth) continue;
@@ -81,8 +82,9 @@ class LineBreaksHandler {
     while (i < lines.length) {
       LatexRenderNode node = lines[i];
       i++;
-      if (node is! GroupNode || node.children.length <= 1)
+      if (node is! GroupNode || node.children.length <= 1) {
         continue; // TODO bracket terms are currently considered as single term, that cannot be split.
+      }
 
       node.performLayout(renderContext);
       if (node.size.width < maxWidth) continue;
@@ -96,8 +98,9 @@ class LineBreaksHandler {
         if (totalWidth > maxWidth) {
           // search for preferred line breaks
           int breakpoint = _findPreferredLineBreak(node.children, j);
-          if (breakpoint == 1 && i > 0)
+          if (breakpoint == 1 && i > 0) {
             continue; // ignore if there is only 1 node, because this is most likely =, +, - from previous line break
+          }
 
           // split text and create new line
           List<LatexRenderNode> nextLineChildren =
@@ -200,8 +203,9 @@ class LineBreaksHandler {
 
     for (var i = 0; i < ogBreakpoint; i++) {
       LatexRenderNode node = nodes[i];
-      if (node is SupSubNode && node.parent is BracketNode)
+      if (node is SupSubNode && node.parent is BracketNode) {
         node = node.parent!; // )², )_i
+      }
 
       if (node is BracketNode) {
         switch (node.bracketType) {

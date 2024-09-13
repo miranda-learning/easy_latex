@@ -18,8 +18,9 @@ class TestBuilder {
 
     // add copy of easyLatexTestScenarios to website
     Directory websiteDir = Directory('website/lib/');
-    if (websiteDir.existsSync())
+    if (websiteDir.existsSync()) {
       File('test/test_scenarios.dart').copy('website/lib/test_scenarios.dart');
+    }
   }
 
   Future<void> _buildRenderTests(Map<String, dynamic> tests) async {
@@ -46,8 +47,8 @@ class TestBuilder {
           str +=
               """  testWidgets('Render test $key', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
-    await tester.pumpWidget(Align(
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
       alignment: Alignment.topCenter,
       child: Latex(r"${tests[k1]![k2]}", fontSize: $fontSize, backgroundColor: Colors.white),
     ));
@@ -59,12 +60,12 @@ class TestBuilder {
           str +=
               """  testWidgets('Render test $key', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = Size(1400, 600);
+    tester.view.physicalSize = const Size(1400, 600);
     await tester.pumpWidget(Align(
       alignment: Alignment.topCenter,
       child: Container(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Latex(
+        child: const Latex(
           r'${tests[k1]![k2]['text']}',
           fontSize: ${tests[k1]![k2]['fontSize'] ?? fontSize},
           wrapMode: ${tests[k1]![k2]['wrapMode'] == null ? "LatexWrapMode.none" : "LatexWrapMode.${tests[k1]![k2]['wrapMode']}"},
