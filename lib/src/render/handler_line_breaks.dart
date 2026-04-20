@@ -159,7 +159,10 @@ class LineBreaksHandler {
           openCurlies != 0 ||
           openSquares != 0 ||
           openDoubleSquares != 0 ||
-          openRounds != 0) continue;
+          openRounds != 0
+      ) {
+        continue;
+      }
 
       // arrows
       if (node is TextNode && arrowLineBreaks.contains(node.text)) {
@@ -229,7 +232,10 @@ class LineBreaksHandler {
           openCurlies != 0 ||
           openSquares != 0 ||
           openDoubleSquares != 0 ||
-          openRounds != 0) continue;
+          openRounds != 0
+      ) {
+        continue;
+      }
 
       if (node is TextNode && equationLineBreaks.contains(node.text)) {
         // =
