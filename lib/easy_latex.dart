@@ -1,5 +1,3 @@
-library easy_latex;
-
 export 'src/enums.dart';
 export 'src/font/latex_font.dart';
 export 'src/widgets/span_latex.dart';
