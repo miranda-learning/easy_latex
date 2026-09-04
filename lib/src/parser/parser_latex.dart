@@ -162,6 +162,7 @@ class LatexParser {
                 subStr == 'Bigg') &&
             expr[j] != r'\' &&
             expr[j] != ' ' &&
+            expr[j] != '.' &&
             subStr != 'left(' &&
             subStr != 'right)' &&
             subStr != r'left{' &&
