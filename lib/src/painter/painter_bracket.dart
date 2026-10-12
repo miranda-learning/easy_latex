@@ -28,6 +28,16 @@ class BracketPainter extends LPainter {
         return Size(min(fontSize * 0.26, height * 0.18), height);
       case BracketType.doubleSquare:
         return Size(min(fontSize * 0.26, height * 0.18), height);
+      case BracketType.vertical:
+        return Size(fontSize * 0.12, height);
+      case BracketType.doubleVertical:
+        return Size(fontSize * 0.24, height);
+      case BracketType.angle:
+        return Size(min(fontSize * 0.45, height * 0.18), height);
+      case BracketType.floor:
+        return Size(min(fontSize * 0.3, height * 0.18), height);
+      case BracketType.ceil:
+        return Size(min(fontSize * 0.3, height * 0.18), height);
       case BracketType.round:
         return Size(min(fontSize * 0.5, height * 0.2), height);
     }
@@ -47,6 +57,22 @@ class BracketPainter extends LPainter {
       case BracketType.doubleSquare:
         path = getSquareBracketPath(size.width, height, fontSize,
             isDoubleBracket: true);
+        break;
+      case BracketType.vertical:
+        path = getVerticalBracketPath(size.width, height, fontSize);
+        break;
+      case BracketType.doubleVertical:
+        path = getVerticalBracketPath(size.width, height, fontSize,
+            isDoubleBracket: true);
+        break;
+      case BracketType.angle:
+        path = getAngleBracketPath(size.width, height, fontSize);
+        break;
+      case BracketType.floor:
+        path = getFloorBracketPath(size.width, height, fontSize);
+        break;
+      case BracketType.ceil:
+        path = getCeilBracketPath(size.width, height, fontSize);
         break;
       case BracketType.round:
         path = getRoundBracketPath(size.width, height, fontSize);
@@ -189,6 +215,74 @@ class BracketPainter extends LPainter {
     path.close();
 
     return path;
+  }
+
+  // vertical brackets
+  static Path getVerticalBracketPath(double w, double h, double fontSize,
+      {bool isDoubleBracket = false}) {
+    double reducedHeightHalf = (h - fontSize * 0.1) / 2;
+    double strokeWidth = fontSize * 0.04;
+    Path path = Path();
+
+    if (isDoubleBracket) {
+      path
+        ..addRect(Rect.fromLTRB(
+            0, -reducedHeightHalf, strokeWidth, reducedHeightHalf))
+        ..addRect(Rect.fromLTRB(w * 0.8 - strokeWidth, -reducedHeightHalf,
+            w * 0.8, reducedHeightHalf));
+    } else {
+      double left = (w - strokeWidth) / 2;
+      path.addRect(Rect.fromLTRB(
+          left, -reducedHeightHalf, left + strokeWidth, reducedHeightHalf));
+    }
+
+    return path;
+  }
+
+  // angle brackets
+  static Path getAngleBracketPath(double w, double h, double fontSize) {
+    double reducedHeightHalf = (h - fontSize * 0.1) / 2;
+    double strokeWidth = fontSize * 0.055;
+
+    return Path()
+      ..moveTo(w, -reducedHeightHalf)
+      ..lineTo(w - strokeWidth, -reducedHeightHalf)
+      ..lineTo(0, -strokeWidth / 2)
+      ..lineTo(0, strokeWidth / 2)
+      ..lineTo(w - strokeWidth, reducedHeightHalf)
+      ..lineTo(w, reducedHeightHalf)
+      ..lineTo(strokeWidth, 0)
+      ..close();
+  }
+
+  // floor brackets
+  static Path getFloorBracketPath(double w, double h, double fontSize) {
+    double reducedHeightHalf = (h - fontSize * 0.1) / 2;
+    double strokeWidth = fontSize * 0.055;
+
+    return Path()
+      ..moveTo(0, -reducedHeightHalf)
+      ..lineTo(strokeWidth, -reducedHeightHalf)
+      ..lineTo(strokeWidth, reducedHeightHalf - strokeWidth)
+      ..lineTo(w, reducedHeightHalf - strokeWidth)
+      ..lineTo(w, reducedHeightHalf)
+      ..lineTo(0, reducedHeightHalf)
+      ..close();
+  }
+
+  // ceil brackets
+  static Path getCeilBracketPath(double w, double h, double fontSize) {
+    double reducedHeightHalf = (h - fontSize * 0.1) / 2;
+    double strokeWidth = fontSize * 0.055;
+
+    return Path()
+      ..moveTo(0, -reducedHeightHalf)
+      ..lineTo(w, -reducedHeightHalf)
+      ..lineTo(w, -reducedHeightHalf + strokeWidth)
+      ..lineTo(strokeWidth, -reducedHeightHalf + strokeWidth)
+      ..lineTo(strokeWidth, reducedHeightHalf)
+      ..lineTo(0, reducedHeightHalf)
+      ..close();
   }
 
   // round brackets

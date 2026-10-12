@@ -14,6 +14,7 @@ import 'node_text.dart';
 
 class MatrixNode extends LatexRenderNode {
   final BracketType bracketType;
+  final bool isSmall;
 
   List<List<LatexRenderNode>> _rows = [];
 
@@ -29,12 +30,12 @@ class MatrixNode extends LatexRenderNode {
   late BracketPainter _rightBracket;
 
   MatrixNode(List<List<LatexRenderNode>> rows,
-      {this.bracketType = BracketType.round}) {
+      {this.bracketType = BracketType.round, this.isSmall = false}) {
     _rows = rows;
   }
 
   MatrixNode.fromGroup(GroupNode group,
-      {this.bracketType = BracketType.round}) {
+      {this.bracketType = BracketType.round, this.isSmall = false}) {
     List<LatexRenderNode> children = group.children;
 
     List<List<GroupNode>> rows = [
@@ -66,6 +67,10 @@ class MatrixNode extends LatexRenderNode {
   @override
   void performLayout(RenderContext renderContext, {isDense = false}) {
     super.performLayout(renderContext);
+    RenderContext cellContext = isSmall
+        ? renderContext.copyWith(
+            fontSizeScaling: 0.7, mathStyle: LatexMathStyle.text)
+        : renderContext;
 
     // layout cells
     _rowHeights = Lists.filledSafe(_rows.length, 0.0);
@@ -77,7 +82,7 @@ class MatrixNode extends LatexRenderNode {
       double rowBaselineToBottom = 0;
 
       for (var j = 0; j < _rows[i].length; j++) {
-        _rows[i][j].performLayout(renderContext);
+        _rows[i][j].performLayout(cellContext);
         rowBaselineToTop = max(rowBaselineToTop, _rows[i][j].baselineOffset);
         rowBaselineToBottom = max(rowBaselineToBottom,
             _rows[i][j].size.height - _rows[i][j].baselineOffset);
@@ -98,7 +103,7 @@ class MatrixNode extends LatexRenderNode {
     for (var w in _columnWidths) {
       width += w;
     }
-    _columnSpacing = renderContext.fontSize * 1;
+    _columnSpacing = cellContext.fontSize * (isSmall ? 0.5 : 1);
     width += max((_columnWidths.length - 1) * _columnSpacing, 0);
 
     // calc height

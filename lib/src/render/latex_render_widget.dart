@@ -119,6 +119,11 @@ class LatexRenderBox extends RenderBox {
       entryNode.baselineOffset + baselineOffset;
 
   @override
+  double? computeDryBaseline(
+          covariant BoxConstraints constraints, TextBaseline baseline) =>
+      entryNode.baselineOffset + baselineOffset;
+
+  @override
   Size computeDryLayout(BoxConstraints constraints) =>
       _computeIntrinsicSize(constraints);
 

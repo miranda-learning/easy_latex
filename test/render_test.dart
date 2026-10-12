@@ -438,6 +438,18 @@ void main() {
         matchesGoldenFile('screenshots/test_subSuper_sub_super_3.png'));
   });
 
+  testWidgets('Render test subSuper_sub_super_4', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"180^\circ. 180_\circ. 180^\pi.",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_subSuper_sub_super_4.png'));
+  });
+
   testWidgets('Render test newlines_newline_with__1',
       (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
@@ -792,6 +804,18 @@ void main() {
         matchesGoldenFile('screenshots/test_custom_Bmatrix2.png'));
   });
 
+  testWidgets('Render test boxes_boxed', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\boxed{x = \frac{1}{2}} \boxed{\pmatrix{1 & 2 \\ 3 & 4}}",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_boxes_boxed.png'));
+  });
+
   testWidgets('Render test brackets_brackets_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
     tester.view.physicalSize = const Size(1400, 600);
@@ -841,6 +865,81 @@ void main() {
     ));
     await expectLater(find.byType(Latex),
         matchesGoldenFile('screenshots/test_brackets_brackets_4.png'));
+  });
+
+  testWidgets('Render test brackets_left_right_vertical',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\left| x \right| \left| \frac{1}{2} \right|",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_brackets_left_right_vertical.png'));
+  });
+
+  testWidgets('Render test brackets_left_right_double_vertical',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\left\lVert x \right\rVert \left\lVert \frac{1}{2} \right\rVert",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(
+        find.byType(Latex),
+        matchesGoldenFile(
+            'screenshots/test_brackets_left_right_double_vertical.png'));
+  });
+
+  testWidgets('Render test brackets_left_right_angle',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\left\langle x \right\rangle \left\langle \frac{1}{2} \right\rangle",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_brackets_left_right_angle.png'));
+  });
+
+  testWidgets('Render test brackets_left_right_floor',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\left\lfloor x \right\rfloor \left\lfloor \frac{1}{2} \right\rfloor",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_brackets_left_right_floor.png'));
+  });
+
+  testWidgets('Render test brackets_left_right_ceil',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\left\lceil x \right\rceil \left\lceil \frac{1}{2} \right\rceil",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_brackets_left_right_ceil.png'));
   });
 
   testWidgets('Render test brackets_cases', (WidgetTester tester) async {
@@ -1576,6 +1675,300 @@ void main() {
         matchesGoldenFile('screenshots/test_integral_smallint.png'));
   });
 
+  testWidgets('Render test mathStyle_displaystyle',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"{\textstyle \frac{a+1}{b+2} \sum_{i=1}^{n} i \int_0^1 x \quad \displaystyle \frac{a+1}{b+2} \sum_{i=1}^{n} i \int_0^1 x}",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_mathStyle_displaystyle.png'));
+  });
+
+  testWidgets('Render test mathStyle_textstyle', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\frac{a+1}{b+2} \sum_{i=1}^{n} i \int_0^1 x \quad {\textstyle \frac{a+1}{b+2} \sum_{i=1}^{n} i \int_0^1 x}",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_mathStyle_textstyle.png'));
+  });
+
+  testWidgets('Render test mathStyle_limits', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\int\limits_0^1 x \quad {\textstyle \sum\limits_{i=1}^{n} i}",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_mathStyle_limits.png'));
+  });
+
+  testWidgets('Render test mathStyle_nolimits', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\sum\nolimits_{i=1}^{n} i \quad \prod\nolimits_{i=1}^{n} i \quad \int\nolimits_0^1 x",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_mathStyle_nolimits.png'));
+  });
+
+  testWidgets('Render test stacksAndArrows_overset',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"a \overset{!}{=} b \overset{n}{\rightarrow} c \overset{\frac{1}{2}}{x}",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_stacksAndArrows_overset.png'));
+  });
+
+  testWidgets('Render test stacksAndArrows_underset',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"a \underset{i=1}{x} b \underset{\frac{1}{2}}{=} c",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_stacksAndArrows_underset.png'));
+  });
+
+  testWidgets('Render test stacksAndArrows_stackrel',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"a \stackrel{!}{=} b \stackrel{n}{\longrightarrow} c",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_stacksAndArrows_stackrel.png'));
+  });
+
+  testWidgets('Render test stacksAndArrows_xrightarrow',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"a \xrightarrow{f} b \xrightarrow{n \to \infty} c \xrightarrow{\frac{1}{2}} d",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_stacksAndArrows_xrightarrow.png'));
+  });
+
+  testWidgets('Render test stacksAndArrows_xleftarrow',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"a \xleftarrow{f} b \xleftarrow{n \to \infty} c \xleftarrow{\frac{1}{2}} d",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_stacksAndArrows_xleftarrow.png'));
+  });
+
+  testWidgets('Render test modAndOperators_pmod', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"a \equiv b \pmod{n} \quad x \equiv y \pmod{m+1}",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_modAndOperators_pmod.png'));
+  });
+
+  testWidgets('Render test modAndOperators_bmod', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"17 \bmod 5 = 2 \quad a \bmod n",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_modAndOperators_bmod.png'));
+  });
+
+  testWidgets('Render test modAndOperators_lcm', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\lcm(12,18) = 36",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_modAndOperators_lcm.png'));
+  });
+
+  testWidgets('Render test modAndOperators_argmin',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\argmin_{x \in \mathbb{R}} f(x) \quad {\textstyle \argmin_{x} f(x)}",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_modAndOperators_argmin.png'));
+  });
+
+  testWidgets('Render test modAndOperators_argmax',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\argmax_{x \in \mathbb{R}} f(x) \quad {\textstyle \argmax_{x} f(x)}",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_modAndOperators_argmax.png'));
+  });
+
+  testWidgets('Render test modAndOperators_substack',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\sum_{\substack{i > 0 \\ j > 0}}^{n} a_{ij}",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_modAndOperators_substack.png'));
+  });
+
+  testWidgets('Render test modAndOperators_cfrac', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"1 + \cfrac{1}{2 + \cfrac{1}{3 + \cfrac{1}{4}}}",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_modAndOperators_cfrac.png'));
+  });
+
+  testWidgets('Render test sizedBrackets_size_1_bigl_bigr',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\bigl( x \bigr) \bigl[ x \bigr] \bigl\{ x \bigr\}",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(
+        find.byType(Latex),
+        matchesGoldenFile(
+            'screenshots/test_sizedBrackets_size_1_bigl_bigr.png'));
+  });
+
+  testWidgets('Render test sizedBrackets_size_2_Bigl_Bigr',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\Bigl( \frac{1}{2} \Bigr) \Bigl\langle x \Bigr\rangle",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(
+        find.byType(Latex),
+        matchesGoldenFile(
+            'screenshots/test_sizedBrackets_size_2_Bigl_Bigr.png'));
+  });
+
+  testWidgets('Render test sizedBrackets_size_3_biggl_biggr',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\biggl\lfloor x \biggr\rfloor \biggl| x \biggr|",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(
+        find.byType(Latex),
+        matchesGoldenFile(
+            'screenshots/test_sizedBrackets_size_3_biggl_biggr.png'));
+  });
+
+  testWidgets('Render test sizedBrackets_size_4_Biggl_Biggr',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\Biggl\lceil x \Biggr\rceil \Biggl\Vert x \Biggr\Vert",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(
+        find.byType(Latex),
+        matchesGoldenFile(
+            'screenshots/test_sizedBrackets_size_4_Biggl_Biggr.png'));
+  });
+
+  testWidgets('Render test sizedBrackets_smallmatrix',
+      (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\begin{smallmatrix}a & b \\ c & d\end{smallmatrix} \quad \left(\begin{smallmatrix}1 & 2 \\ 3 & 4\end{smallmatrix}\right)",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_sizedBrackets_smallmatrix.png'));
+  });
+
   testWidgets('Render test matrix_matrix_1', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
     tester.view.physicalSize = const Size(1400, 600);
@@ -1631,6 +2024,34 @@ void main() {
     ));
     await expectLater(find.byType(Latex),
         matchesGoldenFile('screenshots/test_matrix_matrix_vs_begin.png'));
+  });
+
+  testWidgets('Render test matrix_vmatrix', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\vmatrix{1 & 2 \\ 3 & 4} \begin{vmatrix}1 & 2 \\ 3 & 4\end{vmatrix}",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_matrix_vmatrix.png'));
+  });
+
+  testWidgets('Render test matrix_Vmatrix_double', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(
+          r"\Vmatrix{1 & 2 \\ 3 & 4} \begin{Vmatrix}1 & 2 \\ 3 & 4\end{Vmatrix}",
+          fontSize: 32.0,
+          backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_matrix_Vmatrix_double.png'));
   });
 
   testWidgets('Render test matrix_empty_entries', (WidgetTester tester) async {
@@ -1727,6 +2148,30 @@ void main() {
         matchesGoldenFile('screenshots/test_binomFracSqrt_frac_4.png'));
   });
 
+  testWidgets('Render test binomFracSqrt_dfrac', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\frac{a+1}{b+2} \dfrac{a+1}{b+2} x^{\dfrac{1}{2}}",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_binomFracSqrt_dfrac.png'));
+  });
+
+  testWidgets('Render test binomFracSqrt_tfrac', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\frac{a+1}{b+2} \tfrac{a+1}{b+2} x^{\tfrac{1}{2}}",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_binomFracSqrt_tfrac.png'));
+  });
+
   testWidgets('Render test binomFracSqrt_binom', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
     tester.view.physicalSize = const Size(1400, 600);
@@ -1737,6 +2182,30 @@ void main() {
     ));
     await expectLater(find.byType(Latex),
         matchesGoldenFile('screenshots/test_binomFracSqrt_binom.png'));
+  });
+
+  testWidgets('Render test binomFracSqrt_dbinom', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\binom{n}{k} \dbinom{n}{k} x^{\dbinom{n}{k}}",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_binomFracSqrt_dbinom.png'));
+  });
+
+  testWidgets('Render test binomFracSqrt_tbinom', (WidgetTester tester) async {
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = const Size(1400, 600);
+    await tester.pumpWidget(const Align(
+      alignment: Alignment.topCenter,
+      child: Latex(r"\binom{n}{k} \tbinom{n}{k} x^{\tbinom{n}{k}}",
+          fontSize: 32.0, backgroundColor: Colors.white),
+    ));
+    await expectLater(find.byType(Latex),
+        matchesGoldenFile('screenshots/test_binomFracSqrt_tbinom.png'));
   });
 
   testWidgets('Render test symbols_symbols_1', (WidgetTester tester) async {

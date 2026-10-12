@@ -7,6 +7,7 @@ import 'node.dart';
 import 'node_int.dart';
 import 'node_norm.dart';
 import 'node_placeholder.dart';
+import 'operator_limits_placement.dart';
 
 class SupSubNode extends LatexRenderNode {
   final LatexRenderNode? parent;
@@ -17,6 +18,7 @@ class SupSubNode extends LatexRenderNode {
   late double _superStartOffset;
   late double _subBaselineOffset;
   late double _subStartOffset;
+  late double _parentStartOffset;
 
   SupSubNode(this.parent, {this.superscript, this.subscript});
 
@@ -29,11 +31,12 @@ class SupSubNode extends LatexRenderNode {
     Size parentSize = parent?.size ?? const Size(0, 0);
     double parentBaselineOffset = parent?.baselineOffset ?? 0;
     double parentForcedSubStartOffset = 0;
+    _parentStartOffset = 0;
 
     // parent is integral
     bool isInlineInt = false;
     if (parent is IntNode) {
-      isInlineInt = (parent as IntNode).isInline;
+      isInlineInt = (parent as IntNode).usesInlineStyle;
       parentForcedSubStartOffset = isInlineInt
           ? -renderContext.fontSize * 0.25
           : -renderContext.fontSize * 0.35;
@@ -81,6 +84,43 @@ class SupSubNode extends LatexRenderNode {
             isDense: true);
         subInjectedSubBaselineOffset = renderContext.fontSize * 0.04;
       }
+    }
+
+    // Explicit integral limits are centered above and below the integral.
+    if (parent is IntNode &&
+        (parent as IntNode).limitsPlacement == OperatorLimitsPlacement.limits) {
+      double width = max(parentSize.width,
+          max(superscript?.size.width ?? 0, subscript?.size.width ?? 0));
+      double parentTop = -parentBaselineOffset;
+      double parentBottom = parentSize.height - parentBaselineOffset;
+      double top = parentTop;
+      double bottom = parentBottom;
+
+      _parentStartOffset = width / 2 - parentSize.width / 2;
+
+      if (superscript != null) {
+        _superStartOffset = width / 2 - superscript!.size.width / 2;
+        double superBottom = parentTop + renderContext.fontSize * 0.12;
+        _superBaselineOffset = superBottom -
+            (superscript!.size.height - superscript!.baselineOffset);
+        top = min(top, _superBaselineOffset - superscript!.baselineOffset);
+      }
+
+      if (subscript != null) {
+        _subStartOffset = width / 2 - subscript!.size.width / 2;
+        double subTop = parentBottom - renderContext.fontSize * 0.12;
+        _subBaselineOffset = subTop + subscript!.baselineOffset;
+        bottom = max(
+            bottom,
+            _subBaselineOffset +
+                subscript!.size.height -
+                subscript!.baselineOffset);
+      }
+
+      size = Size(width, bottom - top);
+      baselineOffset = -top;
+      spacingRequired = parent?.spacingRequired ?? false;
+      return;
     }
 
     // parent is norm
@@ -146,7 +186,7 @@ class SupSubNode extends LatexRenderNode {
 
   @override
   void paint(Canvas canvas, double start, double baseline) {
-    parent?.paint(canvas, start, baseline);
+    parent?.paint(canvas, start + _parentStartOffset, baseline);
     superscript?.paint(
         canvas, start + _superStartOffset, baseline + _superBaselineOffset);
     subscript?.paint(
@@ -156,25 +196,21 @@ class SupSubNode extends LatexRenderNode {
   @override
   void computeCursorPositions(double start, double baseline,
       List<Offset> offsets, List<double> fontSizes) {
-    parent?.computeCursorPositions(start, baseline, offsets, fontSizes);
+    parent?.computeCursorPositions(
+        start + _parentStartOffset, baseline, offsets, fontSizes);
 
-    if (parent != null && parent is! PlaceholderNode) {
-      offsets.add(Offset(start + parent!.size.width, baseline));
-      fontSizes.add(parent!.fontSize);
+    if (parent != null) {
+      if (parent is IntNode) {
+        // ignore for definite integrals
+      } else if (parent is! PlaceholderNode) {
+        offsets.add(Offset(start + parent!.size.width, baseline));
+        fontSizes.add(parent!.fontSize);
+      }
     } else if (parent == null) {
       // If parent is null means that SupSubNode is at the beginning.
       // So, we have to add the cursor position at the beginning
       offsets.add(Offset(start, baseline));
       fontSizes.add(fontSize);
-    }
-
-    superscript?.computeCursorPositions(start + _superStartOffset,
-        baseline + _superBaselineOffset, offsets, fontSizes);
-
-    if (shouldAddCursorAfterwards(superscript)) {
-      offsets.add(Offset(start + _superStartOffset + superscript!.size.width,
-          baseline + _superBaselineOffset));
-      fontSizes.add(superscript!.fontSize);
     }
 
     subscript?.computeCursorPositions(start + _subStartOffset,
@@ -184,6 +220,15 @@ class SupSubNode extends LatexRenderNode {
       offsets.add(Offset(start + _subStartOffset + subscript!.size.width,
           baseline + _subBaselineOffset));
       fontSizes.add(subscript!.fontSize);
+    }
+
+    superscript?.computeCursorPositions(start + _superStartOffset,
+        baseline + _superBaselineOffset, offsets, fontSizes);
+
+    if (shouldAddCursorAfterwards(superscript)) {
+      offsets.add(Offset(start + _superStartOffset + superscript!.size.width,
+          baseline + _superBaselineOffset));
+      fontSizes.add(superscript!.fontSize);
     }
   }
 

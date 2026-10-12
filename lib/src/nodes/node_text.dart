@@ -169,8 +169,7 @@ class TextNode extends LatexRenderNode {
         text.endsWith('L') ||
         text.endsWith('O') ||
         text.endsWith('Q') ||
-        text.endsWith('R')
-    ) {
+        text.endsWith('R')) {
       return fontSize * 0;
     }
 
@@ -180,8 +179,7 @@ class TextNode extends LatexRenderNode {
         text.endsWith('K') ||
         text.endsWith('S') ||
         text.endsWith('X') ||
-        text.endsWith('Z')
-    ) {
+        text.endsWith('Z')) {
       return fontSize * 0.01;
     }
 
@@ -194,14 +192,15 @@ class TextNode extends LatexRenderNode {
         text.endsWith('P') ||
         text.endsWith('T') ||
         text.endsWith('U') ||
-        text.endsWith('W')
-    ) {
+        text.endsWith('W')) {
       return fontSize * 0.02;
     }
 
     if (text.endsWith('F')) return fontSize * 0.03;
 
-    if (text.endsWith('V') || text.endsWith('Y')) return fontSize * 0.04;
+    if (text.endsWith('V') || text.endsWith('Y')) {
+      return fontSize * 0.04;
+    }
 
     return 0;
   }

@@ -10,6 +10,7 @@ import 'node_placeholder.dart';
 class FracNode extends LatexRenderNode {
   final LatexRenderNode numerator;
   final LatexRenderNode denominator;
+  final bool? isTextStyle;
 
   late Paint _linePaint;
   late double _lineWidth;
@@ -17,7 +18,7 @@ class FracNode extends LatexRenderNode {
 
   bool _isDense = false;
 
-  FracNode(this.numerator, this.denominator) {
+  FracNode(this.numerator, this.denominator, {this.isTextStyle}) {
     spacingRequired = true;
   }
 
@@ -25,24 +26,29 @@ class FracNode extends LatexRenderNode {
   void performLayout(RenderContext renderContext, {isDense = false}) {
     super.performLayout(renderContext);
 
-    _isDense = isDense;
+    bool useTextStyle =
+        isTextStyle ?? renderContext.mathStyle == LatexMathStyle.text;
+    _isDense = useTextStyle || isDense;
     // layout children
 
     double horizontalMultilineOffset = 0;
+    RenderContext childContext = useTextStyle
+        ? renderContext.copyWith(fontSizeScaling: 0.7)
+        : renderContext;
 
     if (!numerator.isMultiline) {
-      numerator.performLayout(renderContext);
+      numerator.performLayout(childContext);
     } else {
       // TODO
-      numerator.performLayout(renderContext.copyWith(fontSizeScaling: 0.6));
+      numerator.performLayout(childContext.copyWith(fontSizeScaling: 0.6));
       horizontalMultilineOffset = renderContext.fontSize * 0.3;
     }
 
     if (!denominator.isMultiline) {
-      denominator.performLayout(renderContext);
+      denominator.performLayout(childContext);
     } else {
       // TODO
-      denominator.performLayout(renderContext.copyWith(fontSizeScaling: 0.6));
+      denominator.performLayout(childContext.copyWith(fontSizeScaling: 0.6));
       horizontalMultilineOffset = renderContext.fontSize * 0.3;
     }
 

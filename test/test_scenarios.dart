@@ -51,6 +51,7 @@ Map<String, dynamic> get easyLatexTestScenarios => {
           r'sub super 2': r'^14_{~\;6}C - ^235_{~\;92}U = ^14C',
           r'sub super 3':
               r'\int_x^2 \int^x_2 \int_x \int^2 \int_x^M 1_x^2 x_x^2 M_x^2 x dx',
+          r'sub super 4': r'180^\circ. 180_\circ. 180^\pi.',
         },
         'newlines': {
           // with \\
@@ -125,6 +126,10 @@ Map<String, dynamic> get easyLatexTestScenarios => {
           r'\bmatrix1': r'\bmatrix{ 1 & 2 \\ 3 & 4}',
           r'\Bmatrix2': r'\Bmatrix{ 1 & 2 \\ 3 & 4}',
         },
+        'boxes': {
+          r'\boxed{}':
+              r'\boxed{x = \frac{1}{2}} \boxed{\pmatrix{1 & 2 \\ 3 & 4}}',
+        },
         'brackets': {
           r'brackets 1': r'(\frac{1}{2}) '
               r'\left( \frac{1}{2} \right) '
@@ -135,6 +140,16 @@ Map<String, dynamic> get easyLatexTestScenarios => {
           r'brackets 3':
               r'\lparen 5 \rparen \[5\] \lbrack 5 \rbrack \{5\} \lbrace 5 \rbrace \lgroup 5 \rgroup',
           r'brackets 4': r'[a; b)',
+          r'left right vertical':
+              r'\left| x \right| \left| \frac{1}{2} \right|',
+          r'left right double vertical':
+              r'\left\lVert x \right\rVert \left\lVert \frac{1}{2} \right\rVert',
+          r'left right angle':
+              r'\left\langle x \right\rangle \left\langle \frac{1}{2} \right\rangle',
+          r'left right floor':
+              r'\left\lfloor x \right\rfloor \left\lfloor \frac{1}{2} \right\rfloor',
+          r'left right ceil':
+              r'\left\lceil x \right\rceil \left\lceil \frac{1}{2} \right\rceil',
           r'cases': r'x = \cases{3 \ \text{für} \ 0 < x < 1 \\ 3 \\ 3 \\ 3}',
           r'norm 1': r'|1| \big| \Big| \bigg| \Bigg|',
           r'norm 2': r'|1| \big| \frac{1}{1} \big|',
@@ -235,6 +250,51 @@ Map<String, dynamic> get easyLatexTestScenarios => {
           r'\smallint':
               r'\smallint_1^2 \intinline_1^2', // TODO smallint not correctly implemented yet
         },
+        'mathStyle': {
+          r'\displaystyle':
+              r'{\textstyle \frac{a+1}{b+2} \sum_{i=1}^{n} i \int_0^1 x \quad \displaystyle \frac{a+1}{b+2} \sum_{i=1}^{n} i \int_0^1 x}',
+          r'\textstyle':
+              r'\frac{a+1}{b+2} \sum_{i=1}^{n} i \int_0^1 x \quad {\textstyle \frac{a+1}{b+2} \sum_{i=1}^{n} i \int_0^1 x}',
+          r'\limits':
+              r'\int\limits_0^1 x \quad {\textstyle \sum\limits_{i=1}^{n} i}',
+          r'\nolimits':
+              r'\sum\nolimits_{i=1}^{n} i \quad \prod\nolimits_{i=1}^{n} i \quad \int\nolimits_0^1 x',
+        },
+        'stacksAndArrows': {
+          r'\overset{}{}':
+              r'a \overset{!}{=} b \overset{n}{\rightarrow} c \overset{\frac{1}{2}}{x}',
+          r'\underset{}{}':
+              r'a \underset{i=1}{x} b \underset{\frac{1}{2}}{=} c',
+          r'\stackrel{}{}':
+              r'a \stackrel{!}{=} b \stackrel{n}{\longrightarrow} c',
+          r'\xrightarrow{}':
+              r'a \xrightarrow{f} b \xrightarrow{n \to \infty} c \xrightarrow{\frac{1}{2}} d',
+          r'\xleftarrow{}':
+              r'a \xleftarrow{f} b \xleftarrow{n \to \infty} c \xleftarrow{\frac{1}{2}} d',
+        },
+        'modAndOperators': {
+          r'\pmod{}': r'a \equiv b \pmod{n} \quad x \equiv y \pmod{m+1}',
+          r'\bmod': r'17 \bmod 5 = 2 \quad a \bmod n',
+          r'\lcm': r'\lcm(12,18) = 36',
+          r'\argmin':
+              r'\argmin_{x \in \mathbb{R}} f(x) \quad {\textstyle \argmin_{x} f(x)}',
+          r'\argmax':
+              r'\argmax_{x \in \mathbb{R}} f(x) \quad {\textstyle \argmax_{x} f(x)}',
+          r'\substack{}': r'\sum_{\substack{i > 0 \\ j > 0}}^{n} a_{ij}',
+          r'\cfrac{}{}': r'1 + \cfrac{1}{2 + \cfrac{1}{3 + \cfrac{1}{4}}}',
+        },
+        'sizedBrackets': {
+          r'size 1 bigl bigr':
+              r'\bigl( x \bigr) \bigl[ x \bigr] \bigl\{ x \bigr\}',
+          r'size 2 Bigl Bigr':
+              r'\Bigl( \frac{1}{2} \Bigr) \Bigl\langle x \Bigr\rangle',
+          r'size 3 biggl biggr':
+              r'\biggl\lfloor x \biggr\rfloor \biggl| x \biggr|',
+          r'size 4 Biggl Biggr':
+              r'\Biggl\lceil x \Biggr\rceil \Biggl\Vert x \Biggr\Vert',
+          r'smallmatrix':
+              r'\begin{smallmatrix}a & b \\ c & d\end{smallmatrix} \quad \left(\begin{smallmatrix}1 & 2 \\ 3 & 4\end{smallmatrix}\right)',
+        },
         'matrix': {
           r'matrix 1':
               r'\matrix{3} \pmatrix{3} \bmatrix{3} \Bmatrix{3} \matrix{3 \\ 3 } \pmatrix{3 \\ 3 } \bmatrix{3 \\ 3 } \Bmatrix{3 \\ 3 }',
@@ -244,6 +304,10 @@ Map<String, dynamic> get easyLatexTestScenarios => {
               r'\matrix{3 & 313 \\ 313 & 3} \pmatrix{3 & 313 \\ 313 & 3} \bmatrix{3 & 313 \\ 3 & 3} \Bmatrix{3 & 313 \\ 313 & 3}',
           r'matrix vs begin{}':
               r'\matrix{3 & 3 \\ 3 & 3} \begin{matrix}3 & 3 \\ 3 & 3\end{matrix} \pmatrix{3 & 3 \\ 3 & 3} \begin{pmatrix}3 & 3 \\ 3 & 3\end{pmatrix} \bmatrix{3 & 3 \\ 3 & 3} \begin{bmatrix}3 & 3 \\ 3 & 3\end{bmatrix} \Bmatrix{3 & 3 \\ 3 & 3} \begin{Bmatrix}3 & 3 \\ 3 & 3\end{Bmatrix}',
+          r'vmatrix':
+              r'\vmatrix{1 & 2 \\ 3 & 4} \begin{vmatrix}1 & 2 \\ 3 & 4\end{vmatrix}',
+          r'Vmatrix double':
+              r'\Vmatrix{1 & 2 \\ 3 & 4} \begin{Vmatrix}1 & 2 \\ 3 & 4\end{Vmatrix}',
           r'empty entries':
               r'\pmatrix{3 & 3 \\ 3 & 3} \pmatrix{3 & 3 \\  & 3} \pmatrix{ & 3 \\  & 3} \pmatrix{ 3 &  \\  & } \pmatrix{  &  \\  & } \pmatrix{ 3 \\ } \pmatrix{ 3 } \pmatrix{ }',
         },
@@ -261,9 +325,13 @@ Map<String, dynamic> get easyLatexTestScenarios => {
           r'\frac{} 3':
               r'\sqrt{2} \sqrt{\frac{2}{2}} \sqrt{\frac{\frac{2}{2}}{2}} \sqrt{\frac{2}{\frac{\frac{2}{2}}{2}}}',
           r'\frac{} 4': r'a\frac{ag}{ag} b \frac{A\sqrt{2}g}{A\sqrt{2}g} c',
+          r'\dfrac{}': r'\frac{a+1}{b+2} \dfrac{a+1}{b+2} x^{\dfrac{1}{2}}',
+          r'\tfrac{}': r'\frac{a+1}{b+2} \tfrac{a+1}{b+2} x^{\tfrac{1}{2}}',
 
           // binom
           r'\binom{}': r'a \binom{ag}{ag} b',
+          r'\dbinom{}': r'\binom{n}{k} \dbinom{n}{k} x^{\dbinom{n}{k}}',
+          r'\tbinom{}': r'\binom{n}{k} \tbinom{n}{k} x^{\tbinom{n}{k}}',
         },
         'symbols': {
           r'symbols 1': r'+-*/=?!:><|`',

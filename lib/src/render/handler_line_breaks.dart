@@ -129,6 +129,11 @@ class LineBreaksHandler {
     int openCurlies = 0;
     int openSquares = 0;
     int openDoubleSquares = 0;
+    int openVerticals = 0;
+    int openDoubleVerticals = 0;
+    int openAngles = 0;
+    int openFloors = 0;
+    int openCeils = 0;
     int openRounds = 0;
 
     int i = 0;
@@ -149,6 +154,21 @@ class LineBreaksHandler {
           case BracketType.doubleSquare:
             openDoubleSquares += node.bracketOrientation.isLeft ? 1 : -1;
             break;
+          case BracketType.vertical:
+            openVerticals += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
+          case BracketType.doubleVertical:
+            openDoubleVerticals += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
+          case BracketType.angle:
+            openAngles += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
+          case BracketType.floor:
+            openFloors += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
+          case BracketType.ceil:
+            openCeils += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
           case BracketType.round:
             openRounds += node.bracketOrientation.isLeft ? 1 : -1;
             break;
@@ -159,8 +179,12 @@ class LineBreaksHandler {
           openCurlies != 0 ||
           openSquares != 0 ||
           openDoubleSquares != 0 ||
-          openRounds != 0
-      ) {
+          openVerticals != 0 ||
+          openDoubleVerticals != 0 ||
+          openAngles != 0 ||
+          openFloors != 0 ||
+          openCeils != 0 ||
+          openRounds != 0) {
         continue;
       }
 
@@ -195,6 +219,11 @@ class LineBreaksHandler {
     int openCurlies = 0;
     int openSquares = 0;
     int openDoubleSquares = 0;
+    int openVerticals = 0;
+    int openDoubleVerticals = 0;
+    int openAngles = 0;
+    int openFloors = 0;
+    int openCeils = 0;
     int openRounds = 0;
 
     int equationBreakpoint = 0;
@@ -223,6 +252,21 @@ class LineBreaksHandler {
           case BracketType.doubleSquare:
             openDoubleSquares += node.bracketOrientation.isLeft ? 1 : -1;
             break;
+          case BracketType.vertical:
+            openVerticals += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
+          case BracketType.doubleVertical:
+            openDoubleVerticals += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
+          case BracketType.angle:
+            openAngles += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
+          case BracketType.floor:
+            openFloors += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
+          case BracketType.ceil:
+            openCeils += node.bracketOrientation.isLeft ? 1 : -1;
+            break;
           case BracketType.round:
             openRounds += node.bracketOrientation.isLeft ? 1 : -1;
             break;
@@ -232,8 +276,12 @@ class LineBreaksHandler {
           openCurlies != 0 ||
           openSquares != 0 ||
           openDoubleSquares != 0 ||
-          openRounds != 0
-      ) {
+          openVerticals != 0 ||
+          openDoubleVerticals != 0 ||
+          openAngles != 0 ||
+          openFloors != 0 ||
+          openCeils != 0 ||
+          openRounds != 0) {
         continue;
       }
 

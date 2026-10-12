@@ -4,7 +4,9 @@ import 'package:flutter/widgets.dart';
 
 import '../render/__export.dart';
 import 'node.dart';
+import 'node_sup_sub.dart';
 import 'node_text.dart';
+import 'operator_limits_placement.dart';
 
 enum LimProdSumType {
   coprod,
@@ -20,21 +22,27 @@ enum LimProdSumType {
   biguplus,
   bigvee,
   bigwedge,
+  argmin,
+  argmax,
 }
 
 class LimProdSumNode extends LatexRenderNode {
   final LimProdSumType type;
   final LatexRenderNode? superscript;
   final LatexRenderNode? subscript;
+  final OperatorLimitsPlacement limitsPlacement;
 
   late final TextNode _parent;
   late final double _fontScaling;
   late final double _superScriptBottomOffset;
+  SupSubNode? _sideNode;
+  bool _useLimits = true;
 
   LimProdSumNode({
     required this.type,
     this.superscript,
     this.subscript,
+    this.limitsPlacement = OperatorLimitsPlacement.automatic,
   }) {
     switch (type) {
       case LimProdSumType.coprod:
@@ -114,6 +122,18 @@ class LimProdSumNode extends LatexRenderNode {
         _fontScaling = 1.5;
         _superScriptBottomOffset = 0.15;
         break;
+
+      case LimProdSumType.argmin:
+        _parent = TextNode('arg\u200Amin', textType: TextType.upperCase);
+        _fontScaling = 1;
+        _superScriptBottomOffset = 0;
+        break;
+
+      case LimProdSumType.argmax:
+        _parent = TextNode('arg\u200Amax', textType: TextType.upperCase);
+        _fontScaling = 1;
+        _superScriptBottomOffset = 0;
+        break;
     }
   }
 
@@ -121,9 +141,32 @@ class LimProdSumNode extends LatexRenderNode {
   void performLayout(RenderContext renderContext, {isDense = false}) {
     super.performLayout(renderContext);
 
+    _useLimits = limitsPlacement == OperatorLimitsPlacement.limits ||
+        limitsPlacement == OperatorLimitsPlacement.automatic &&
+            renderContext.mathStyle == LatexMathStyle.display;
+    double parentFontScaling =
+        renderContext.mathStyle == LatexMathStyle.text && _fontScaling > 1
+            ? 1
+            : _fontScaling;
+
+    if (!_useLimits) {
+      _sideNode = SupSubNode(
+        _ScaledNode(_parent, parentFontScaling),
+        superscript: superscript,
+        subscript: subscript,
+      );
+      _sideNode!.performLayout(renderContext);
+      size = _sideNode!.size;
+      baselineOffset = _sideNode!.baselineOffset;
+      spacingRequired = true;
+      return;
+    }
+
+    _sideNode = null;
+
     // layout parent
-    _parent
-        .performLayout(renderContext.copyWith(fontSizeScaling: _fontScaling));
+    _parent.performLayout(
+        renderContext.copyWith(fontSizeScaling: parentFontScaling));
 
     // layout super
     RenderContext subSupContext = renderContext.copyWith(
@@ -184,6 +227,11 @@ class LimProdSumNode extends LatexRenderNode {
 
   @override
   void paint(Canvas canvas, double start, double baseline) {
+    if (!_useLimits) {
+      _sideNode!.paint(canvas, start, baseline);
+      return;
+    }
+
     _parent.paint(
       canvas,
       start + size.width / 2 - _parent.size.width / 2,
@@ -209,7 +257,9 @@ class LimProdSumNode extends LatexRenderNode {
 
   @override
   void computeCursorPositions(double start, double baseline,
-      List<Offset> offsets, List<double> fontSizes) {}
+      List<Offset> offsets, List<double> fontSizes) {
+    _sideNode?.computeCursorPositions(start, baseline, offsets, fontSizes);
+  }
 
   @override
   double get topRightOffset => 0;
@@ -232,4 +282,44 @@ class LimProdSumNode extends LatexRenderNode {
         '\n$indent  subscript: ${subscript?.toStringWithIndent('$indent  ')}';
     return str;
   }
+}
+
+class _ScaledNode extends LatexRenderNode {
+  final LatexRenderNode child;
+  final double fontScaling;
+
+  _ScaledNode(this.child, this.fontScaling);
+
+  @override
+  void performLayout(RenderContext renderContext, {isDense = false}) {
+    super.performLayout(renderContext);
+    child.performLayout(renderContext.copyWith(fontSizeScaling: fontScaling),
+        isDense: isDense);
+    size = child.size;
+    baselineOffset = child.baselineOffset;
+    spacingRequired = child.spacingRequired;
+  }
+
+  @override
+  void paint(Canvas canvas, double start, double baseline) {
+    child.paint(canvas, start, baseline);
+  }
+
+  @override
+  void computeCursorPositions(double start, double baseline,
+      List<Offset> offsets, List<double> fontSizes) {
+    child.computeCursorPositions(start, baseline, offsets, fontSizes);
+  }
+
+  @override
+  double get baselineToTop => child.baselineToTop;
+
+  @override
+  double get topRightOffset => child.topRightOffset;
+
+  @override
+  bool get isMultiline => child.isMultiline;
+
+  @override
+  String toStringWithIndent(String indent) => child.toStringWithIndent(indent);
 }

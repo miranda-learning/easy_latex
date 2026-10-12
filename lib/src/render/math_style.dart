@@ -1,0 +1,4 @@
+enum LatexMathStyle {
+  display,
+  text,
+}

@@ -90,6 +90,27 @@ RichText(
 
 ```
 
+## Supported LaTeX Commands
+
+The renderer supports common mathematical expressions, symbols, fonts,
+decorations, vectors and matrices. Some notable supported commands are:
+
+- **Fractions and combinations:** `\frac{}{}`, `\dfrac{}{}`, `\tfrac{}{}`,
+  `\cfrac{}{}`, `\binom{}{}`, `\dbinom{}{}`, `\tbinom{}{}`
+- **Brackets:** `\left...\right` with round, square, curly, vertical, angle,
+  floor and ceiling brackets
+- **Fixed-size brackets:** `\bigl`/`\bigr`, `\Bigl`/`\Bigr`,
+  `\biggl`/`\biggr`, `\Biggl`/`\Biggr`
+- **Math styles and limits:** `\displaystyle`, `\textstyle`, `\limits`,
+  `\nolimits`
+- **Stacked expressions and arrows:** `\overset{}{}`, `\underset{}{}`,
+  `\stackrel{}{}`, `\xrightarrow{}`, `\xleftarrow{}`
+- **Operators:** `\pmod{}`, `\bmod`, `\lcm`, `\argmin`, `\argmax`,
+  `\substack{}`
+- **Matrices:** `matrix`, `pmatrix`, `bmatrix`, `Bmatrix`, `vmatrix`,
+  `Vmatrix` and `smallmatrix` environments
+- **Boxes:** `\boxed{}`
+
 ## Unsupported LaTeX Commands
 
 We know some features you might need are missing right now. We're actively 
@@ -99,17 +120,12 @@ are not available:
 - **Fonts:** `\mathit{}`, `\mathsf{}`
 - **Table:** `\begin{tabular}`, `\end{tabular}`, `\multicolumn`, `\multirow`, `\hline`, `\cline`
 - **Array:** `\begin{array}`, `\end{array}`
-- **Matrix:** `\begin{vmatrix}`, `\end{vmatrix}`, `\begin{Vmatrix}`, `\end{Vmatrix}`, `\begin{smallmatrix}`, `\end{smallmatrix}`
 - **Align:** `\begin{align}`, `\end{align}`, `\begin{alignat}`, `\end{alignat}`
-- **Underset, overset:** `\underset{}`, `\overset{}`, `\stackrel{}`, `\xrightarrow{}`, `\xleftarrow{}`
 - **Phantom:** `\phantom{}`, `\hphantom{}`, `\vphantom{}`
-- **Apostrophes:** `\acute`, `\grave`, `\breve`, `\check`
-- **Apostrophes:** `\acute`, `\grave`, `\breve`, `\check`
-- **Nolimits, limits:** `\sum\nolimits`, `\prod\nolimits`, `\int\limits`, `\sideset{}`
+- **Accents:** `\acute`, `\grave`, `\breve`, `\check`
+- **Operator layout:** `\sideset{}`
 - **Not, cancel:** `\!`, `\not`, `\cancel{}`, `\bcancel{}`, `\xcancel{}`, `\cancelto{}`
-- **Left, right:** `\left|`, `\right|`, `\left.`, `\right.`, `\left\rangle`, `\right\rangle`
-- **bigl, Bigl:** `\bigl`, `\Bigl`, `\biggl`, `\Biggl`, `\bigr`, `\Bigr`, `\biggr`, `\Biggr`
-- **dfrac, dbinom:** `\dfrac{}`, `\dbinom{}{}`, `\tbinom{}{}`
+- **Left, right:** `\left.`, `\right.`
 - **Other commands:** `\atop`, `\varliminf`, `\varlimsup`, `\longdiv`
 
 

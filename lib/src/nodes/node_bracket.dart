@@ -9,12 +9,22 @@ enum BracketType {
   curly,
   square,
   doubleSquare,
+  vertical,
+  doubleVertical,
+  angle,
+  floor,
+  ceil,
   round;
 
   bool get isNone => this == none;
   bool get isCurly => this == curly;
   bool get isSquare => this == square;
   bool get isDoubleSquare => this == doubleSquare;
+  bool get isVertical => this == vertical;
+  bool get isDoubleVertical => this == doubleVertical;
+  bool get isAngle => this == angle;
+  bool get isFloor => this == floor;
+  bool get isCeil => this == ceil;
   bool get isRound => this == round;
 }
 
@@ -29,18 +39,21 @@ enum BracketOrientation {
 class BracketNode extends LatexRenderNode {
   final BracketType bracketType;
   final BracketOrientation bracketOrientation;
+  final double heightScale;
 
   late BracketPainter _bracketPainter;
   double _startOffset = 0;
 
-  BracketNode(this.bracketType, this.bracketOrientation);
+  BracketNode(this.bracketType, this.bracketOrientation,
+      {this.heightScale = 1});
 
   @override
   void performLayout(RenderContext renderContext, {isDense = false}) {
     super.performLayout(renderContext);
 
-    _bracketPainter = BracketPainter(
-        renderContext, renderContext.fontSize, bracketType, bracketOrientation);
+    double height = renderContext.fontSize * heightScale;
+    _bracketPainter =
+        BracketPainter(renderContext, height, bracketType, bracketOrientation);
 
     double innerSpacing = renderContext.fontSize * 0.1;
     double outerSpacing = renderContext.fontSize * 0.1;

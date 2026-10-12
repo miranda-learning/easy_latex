@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import '../render/__export.dart';
 import 'node.dart';
 
-enum NormSize { big, uBig, bigg, uBigg }
+enum NormSize { regular, big, uBig, bigg, uBigg }
 
 class NormNode extends LatexRenderNode {
   final NormSize normSize;
@@ -16,6 +16,9 @@ class NormNode extends LatexRenderNode {
 
     double height;
     switch (normSize) {
+      case NormSize.regular:
+        height = renderContext.fontSize;
+        break;
       case NormSize.big:
         height = renderContext.fontSize * 1.2;
         break;

@@ -7,20 +7,26 @@ import 'node_matrix.dart';
 class BinomNode extends LatexRenderNode {
   final LatexRenderNode n;
   final LatexRenderNode k;
+  final bool? isTextStyle;
 
   late MatrixNode _matrixNode;
 
-  BinomNode(this.n, this.k);
+  BinomNode(this.n, this.k, {this.isTextStyle});
 
   @override
   void performLayout(RenderContext renderContext, {isDense = false}) {
     super.performLayout(renderContext);
 
+    bool useTextStyle =
+        isTextStyle ?? renderContext.mathStyle == LatexMathStyle.text;
+    RenderContext childContext = useTextStyle
+        ? renderContext.copyWith(fontSizeScaling: 0.7)
+        : renderContext;
     _matrixNode = MatrixNode([
       [n],
       [k]
     ]);
-    _matrixNode.performLayout(renderContext);
+    _matrixNode.performLayout(childContext);
 
     size = _matrixNode.size;
     baselineOffset = _matrixNode.baselineOffset;

@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import '../painter/__export.dart';
 import '../render/__export.dart';
 import 'node.dart';
+import 'operator_limits_placement.dart';
 
 enum IntegralType {
   regular,
@@ -27,23 +28,37 @@ enum IntegralType {
 class IntNode extends LatexRenderNode {
   final IntegralType type;
   final bool isInline;
+  OperatorLimitsPlacement limitsPlacement;
   late IntegralPainter _integralPainter;
 
   IntNode({
     this.type = IntegralType.regular,
     this.isInline = false,
+    this.limitsPlacement = OperatorLimitsPlacement.automatic,
   });
 
   @override
   void performLayout(RenderContext renderContext, {isDense = false}) {
     super.performLayout(renderContext);
 
+    bool useInlineStyle =
+        isInline || renderContext.mathStyle == LatexMathStyle.text;
     _integralPainter =
-        IntegralPainter(renderContext, type: type, isInline: isInline);
+        IntegralPainter(renderContext, type: type, isInline: useInlineStyle);
 
     size = _integralPainter.size;
     baselineOffset = _integralPainter.baselineOffset;
     spacingRequired = true;
+  }
+
+  bool get usesInlineStyle =>
+      isInline || renderContext?.mathStyle == LatexMathStyle.text;
+
+  @override
+  void computeCursorPositions(double start, double baseline,
+      List<Offset> offsets, List<double> fontSizes) {
+    offsets.add(Offset(start, baseline));
+    fontSizes.add(fontSize);
   }
 
   @override
@@ -55,7 +70,7 @@ class IntNode extends LatexRenderNode {
   double get topRightOffset => fontSize * 0.02;
 
   @override
-  bool get isMultiline => !isInline;
+  bool get isMultiline => !usesInlineStyle;
 
   @override
   String toString() => toStringWithIndent('');

@@ -1,5 +1,6 @@
 import '../font/__export.dart';
 import '../nodes/__export.dart';
+import '../render/__export.dart';
 
 class Token {}
 
@@ -10,6 +11,16 @@ enum BracketTokenType {
   rightCurly,
   leftSquare,
   rightSquare,
+  leftVertical,
+  rightVertical,
+  leftDoubleVertical,
+  rightDoubleVertical,
+  leftAngle,
+  rightAngle,
+  leftFloor,
+  rightFloor,
+  leftCeil,
+  rightCeil,
   doubleLeftSquare,
   doubleRightSquare,
 }
@@ -24,21 +35,37 @@ class BracketToken extends Token {
   String toString() => 'BracketToken - type: $type';
 }
 
+class SizedBracketToken extends Token {
+  final double heightScale;
+  final BracketOrientation bracketOrientation;
+
+  SizedBracketToken(this.heightScale, this.bracketOrientation);
+}
+
 enum FunctionType {
   topDecoration,
   bottomDecoration,
   font,
 
   binom,
+  boxed,
   cases,
   color,
   frac,
+  extendedArrow,
   limProdSum,
+  limitPlacement,
+  mathStyle,
   matrix,
   nocursor,
+  pmod,
+  substack,
   superscript,
   subscript,
   sqrt,
+  overset,
+  underset,
+  stackrel,
 }
 
 List<String> functionNames = [
@@ -61,6 +88,7 @@ List<String> functionNames = [
   'tanh',
   'coth',
   'nCr',
+  'lcm',
 ];
 
 class FunctionalToken extends Token {
@@ -72,6 +100,11 @@ class FunctionalToken extends Token {
   final LimProdSumType? limProdSumType;
   final LatexFont? font;
   final bool? isBold;
+  final bool? isTextStyle;
+  final bool isSmallMatrix;
+  final LatexMathStyle? mathStyle;
+  final OperatorLimitsPlacement? limitsPlacement;
+  final ExtendedArrowDirection? extendedArrowDirection;
 
   FunctionalToken(
     this.type, {
@@ -82,6 +115,11 @@ class FunctionalToken extends Token {
     this.limProdSumType,
     this.font,
     this.isBold,
+    this.isTextStyle,
+    this.isSmallMatrix = false,
+    this.mathStyle,
+    this.limitsPlacement,
+    this.extendedArrowDirection,
   });
 
   @override

@@ -1,5 +1,6 @@
 import '../font/__export.dart';
 import '../nodes/__export.dart';
+import '../render/__export.dart';
 import 'tokens.dart';
 
 class SyntaxParser {
@@ -29,7 +30,7 @@ class SyntaxParser {
     '>': () => TextNode('>', spacingRequired: true),
     '<': () => TextNode('<', spacingRequired: true),
     '~': () => TextNode('\u00a0'),
-    '|': () => TextNode('\u2223'),
+    '|': () => NormNode(NormSize.regular),
     '`': () => TextNode('\u2018'),
     ',': () => TextNode(',\u200A'),
     ';': () => TextNode(';\u200A'),
@@ -76,10 +77,80 @@ class SyntaxParser {
     'comma': () => CommaNode(),
     'listcomma': () => CommaNode(isListSeparator: true),
     'minus': () => MinusNode(),
+
     'placeholder': () => PlaceholderNode(),
+    'wideplaceholder': () => PlaceholderNode(width: PlaceholderWidth.wide),
+    'widerplaceholder': () =>
+        PlaceholderNode(width: PlaceholderWidth.extraWide),
+
+    'borderplaceholder': () => PlaceholderNode(showBorder: true),
+    'wideborderplaceholder': () =>
+        PlaceholderNode(showBorder: true, width: PlaceholderWidth.wide),
+    'widerborderplaceholder': () =>
+        PlaceholderNode(showBorder: true, width: PlaceholderWidth.extraWide),
+
     'dashplaceholder': () => PlaceholderNode(type: PlaceholderType.dashed),
-    'redplaceholder': () => PlaceholderNode(type: PlaceholderType.lightRed),
+    'widedashplaceholder': () => PlaceholderNode(
+        type: PlaceholderType.dashed, width: PlaceholderWidth.wide),
+    'widerdashplaceholder': () => PlaceholderNode(
+        type: PlaceholderType.dashed, width: PlaceholderWidth.extraWide),
+
+    'redplaceholder': () => PlaceholderNode(type: PlaceholderType.red),
+    'wideredplaceholder': () => PlaceholderNode(
+        type: PlaceholderType.red, width: PlaceholderWidth.wide),
+    'widerredplaceholder': () => PlaceholderNode(
+        type: PlaceholderType.red, width: PlaceholderWidth.extraWide),
+
+    'answerbox': () => PlaceholderNode(
+        showBorder: true,
+        width: PlaceholderWidth.wide,
+        height: PlaceholderHeight.tall,
+        showQuestionMark: true),
+    'wideanswerbox': () => PlaceholderNode(
+        showBorder: true,
+        width: PlaceholderWidth.extraWide,
+        height: PlaceholderHeight.tall,
+        showQuestionMark: true),
+
+    'hiddencursor': () => PlaceholderNode(type: PlaceholderType.invisible),
     'nocursor': () => FunctionalToken(FunctionType.nocursor, cmd: 'nocursor'),
+
+    // Math style and operator limits
+    'displaystyle': () => FunctionalToken(FunctionType.mathStyle,
+        cmd: 'displaystyle', mathStyle: LatexMathStyle.display),
+    'textstyle': () => FunctionalToken(FunctionType.mathStyle,
+        cmd: 'textstyle', mathStyle: LatexMathStyle.text),
+    'limits': () => FunctionalToken(FunctionType.limitPlacement,
+        cmd: 'limits', limitsPlacement: OperatorLimitsPlacement.limits),
+    'nolimits': () => FunctionalToken(FunctionType.limitPlacement,
+        cmd: 'nolimits', limitsPlacement: OperatorLimitsPlacement.noLimits),
+
+    // Fixed-size brackets
+    'bigl': () => SizedBracketToken(1.2, BracketOrientation.left),
+    'bigr': () => SizedBracketToken(1.2, BracketOrientation.right),
+    'Bigl': () => SizedBracketToken(1.6, BracketOrientation.left),
+    'Bigr': () => SizedBracketToken(1.6, BracketOrientation.right),
+    'biggl': () => SizedBracketToken(2.0, BracketOrientation.left),
+    'biggr': () => SizedBracketToken(2.0, BracketOrientation.right),
+    'Biggl': () => SizedBracketToken(2.4, BracketOrientation.left),
+    'Biggr': () => SizedBracketToken(2.4, BracketOrientation.right),
+
+    // Stacked expressions and extensible arrows
+    'overset': () => FunctionalToken(FunctionType.overset, cmd: 'overset'),
+    'underset': () => FunctionalToken(FunctionType.underset, cmd: 'underset'),
+    'stackrel': () => FunctionalToken(FunctionType.stackrel, cmd: 'stackrel'),
+    'xrightarrow': () => FunctionalToken(FunctionType.extendedArrow,
+        cmd: 'xrightarrow',
+        extendedArrowDirection: ExtendedArrowDirection.right),
+    'xleftarrow': () => FunctionalToken(FunctionType.extendedArrow,
+        cmd: 'xleftarrow', extendedArrowDirection: ExtendedArrowDirection.left),
+
+    // Modular arithmetic and stacked limits
+    'pmod': () => FunctionalToken(FunctionType.pmod, cmd: 'pmod'),
+    'substack': () => FunctionalToken(FunctionType.substack, cmd: 'substack'),
+    'bmod': () =>
+        TextNode('mod', textType: TextType.lowerCase, spacingRequired: true),
+    'lcm': () => TextNode('lcm', textType: TextType.upperCase),
 
     // Brackets
     'left(': () => BracketToken(BracketTokenType.leftRound),
@@ -92,6 +163,16 @@ class SyntaxParser {
             true), // original latex: \right\}, but _cleanInitialExpr() remove the second \
     'left[': () => BracketToken(BracketTokenType.leftSquare),
     'right]': () => BracketToken(BracketTokenType.rightSquare),
+    'left|': () => BracketToken(BracketTokenType.leftVertical),
+    'right|': () => BracketToken(BracketTokenType.rightVertical),
+    'leftVert': () => BracketToken(BracketTokenType.leftDoubleVertical),
+    'rightVert': () => BracketToken(BracketTokenType.rightDoubleVertical),
+    'leftAngle': () => BracketToken(BracketTokenType.leftAngle),
+    'rightAngle': () => BracketToken(BracketTokenType.rightAngle),
+    'leftFloor': () => BracketToken(BracketTokenType.leftFloor),
+    'rightFloor': () => BracketToken(BracketTokenType.rightFloor),
+    'leftCeil': () => BracketToken(BracketTokenType.leftCeil),
+    'rightCeil': () => BracketToken(BracketTokenType.rightCeil),
     'llbracket': () => BracketToken(BracketTokenType.doubleLeftSquare),
     'rrbracket': () => BracketToken(BracketTokenType.doubleRightSquare),
 
@@ -182,6 +263,8 @@ class SyntaxParser {
         FunctionalToken(FunctionType.font, cmd: 'text', font: MainLatexFont()),
     'textrm': () => FunctionalToken(FunctionType.font,
         cmd: 'textrm', font: MainLatexFont()),
+    'textbf': () => FunctionalToken(FunctionType.font,
+        cmd: 'textbf', font: MainLatexFont(), isBold: true),
 
     // Big, Lim, Prod, Sum
     'bigcap': () => FunctionalToken(FunctionType.limProdSum,
@@ -210,6 +293,10 @@ class SyntaxParser {
         cmd: 'prod', limProdSumType: LimProdSumType.prod),
     'sum': () => FunctionalToken(FunctionType.limProdSum,
         cmd: 'sum', limProdSumType: LimProdSumType.sum),
+    'argmin': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'argmin', limProdSumType: LimProdSumType.argmin),
+    'argmax': () => FunctionalToken(FunctionType.limProdSum,
+        cmd: 'argmax', limProdSumType: LimProdSumType.argmax),
 
     // Integrals
     'int': () => IntNode(),
@@ -233,10 +320,27 @@ class SyntaxParser {
         cmd: 'bmatrix', bracketType: BracketType.square),
     'Bmatrix': () => FunctionalToken(FunctionType.matrix,
         cmd: 'Bmatrix', bracketType: BracketType.curly),
+    'vmatrix': () => FunctionalToken(FunctionType.matrix,
+        cmd: 'vmatrix', bracketType: BracketType.vertical),
+    'Vmatrix': () => FunctionalToken(FunctionType.matrix,
+        cmd: 'Vmatrix', bracketType: BracketType.doubleVertical),
+    'smallmatrix': () => FunctionalToken(FunctionType.matrix,
+        cmd: 'smallmatrix', bracketType: BracketType.none, isSmallMatrix: true),
 
-    // Binom, Frac, Sqrt
+    // Binom, Boxed, Frac, Sqrt
     'binom': () => FunctionalToken(FunctionType.binom, cmd: 'binom'),
+    'dbinom': () =>
+        FunctionalToken(FunctionType.binom, cmd: 'dbinom', isTextStyle: false),
+    'tbinom': () =>
+        FunctionalToken(FunctionType.binom, cmd: 'tbinom', isTextStyle: true),
+    'boxed': () => FunctionalToken(FunctionType.boxed, cmd: 'boxed'),
     'frac': () => FunctionalToken(FunctionType.frac, cmd: 'frac'),
+    'dfrac': () =>
+        FunctionalToken(FunctionType.frac, cmd: 'dfrac', isTextStyle: false),
+    'tfrac': () =>
+        FunctionalToken(FunctionType.frac, cmd: 'tfrac', isTextStyle: true),
+    'cfrac': () =>
+        FunctionalToken(FunctionType.frac, cmd: 'cfrac', isTextStyle: false),
     'sqrt': () => FunctionalToken(FunctionType.sqrt, cmd: 'sqrt'),
 
     // Symbols
